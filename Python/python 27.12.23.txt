@@ -1,0 +1,25 @@
+write a program to print a * of right angle triangle
+
+
+write a program to print a same rigth angle triangle in reverse
+
+
+write a program to take the sides of a triangle as i/p and check whether it is right angle triangle or not
+
+
+write a program to read breadth and height of the triangle and find its a area
+
+
+write a program to find the roots of quadratic equation
+
+
+write a program to read 2 nos and print the cube of its difference
+
+
+write a program to read n values at a  time and print its sum
+
+
+write a program to read n values seperated with ',' and find the largest and smallest
+
+
+write a program to find 2nd largest element

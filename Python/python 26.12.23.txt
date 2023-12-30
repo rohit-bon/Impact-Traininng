@@ -1,0 +1,165 @@
+Read Evolve Print and Loop REPL Shell
+
+2 types of indentation
+	1. horizontal
+	2. vertical
+
+increase readitni9lty
+diffrentiate code blocks
+Ambigiuty
+
+
+
+
+
+Python 3.12.1 (tags/v3.12.1:2305ca5, Dec  7 2023, 22:03:25) [MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+2+2
+4
+a=100
+id(a)
+140720027747864
+id(100)
+140720027747864
+a=b=c=100
+id(a)
+140720027747864
+id(b)
+140720027747864
+id(c)
+140720027747864
+type(100)
+<class 'int'>
+type(a)
+<class 'int'>
+dir100
+Traceback (most recent call last):
+  File "<pyshell#10>", line 1, in <module>
+    dir100
+NameError: name 'dir100' is not defined
+dir(100)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'as_integer_ratio', 'bit_count', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'is_integer', 'numerator', 'real', 'to_bytes']
+dir(100.0)
+['__abs__', '__add__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getformat__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__int__', '__le__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__pos__', '__pow__', '__radd__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rmod__', '__rmul__', '__round__', '__rpow__', '__rsub__', '__rtruediv__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', 'as_integer_ratio', 'conjugate', 'fromhex', 'hex', 'imag', 'is_integer', 'real']
+100 bis 100.0
+SyntaxError: invalid syntax
+100 is 100.0
+False
+100 == 100.0
+True
+100 === 100.0
+SyntaxError: invalid syntax
+a = 100
+b = '100'
+a == b
+False
+dir(true)
+Traceback (most recent call last):
+  File "<pyshell#21>", line 1, in <module>
+    dir(true)
+NameError: name 'true' is not defined. Did you mean: 'True'?
+dir(True)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'as_integer_ratio', 'bit_count', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'is_integer', 'numerator', 'real', 'to_bytes']
+li=[]
+type(li)
+<class 'list'>
+lii=list()
+type(lii)
+<class 'list'>
+id(li)
+1593768079104
+liii=li.copy()
+id(liii)
+1593762745920
+dir(li)
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+li.append(10)
+li.append(20)
+li.append(3)
+li
+[10, 20, 3]
+li.append(40)
+li
+[10, 20, 3, 40]
+li.pop()
+40
+li.pop(1)
+20
+li
+[10, 3]
+lii=li.copy()
+lii
+[10, 3]
+li.insert(1, 30)
+li
+[10, 30, 3]
+li.extrend([40,50])
+Traceback (most recent call last):
+  File "<pyshell#44>", line 1, in <module>
+    li.extrend([40,50])
+AttributeError: 'list' object has no attribute 'extrend'. Did you mean: 'extend'?
+li.extend([40,50])
+li
+[10, 30, 3, 40, 50]
+li[::-1]
+[50, 40, 3, 30, 10]
+li
+[10, 30, 3, 40, 50]
+li.reverse()
+li
+[50, 40, 3, 30, 10]
+sorted(li)
+[3, 10, 30, 40, 50]
+li
+[50, 40, 3, 30, 10]
+li.sort
+<built-in method sort of list object at 0x0000017313FAEF00>
+li.sort()
+li
+[3, 10, 30, 40, 50]
+
+
+
+
+
+
+Write a python program to find number of days in a month. without using calendar
+
+days_31=[1,3,5,7,8,10,12]
+days_30=[4,6,9,11]
+month=int(input("Enter a month"))
+if month==2:
+    year = int(input("Enter a year"))
+    if year%4==0 and (year%100!=0 or year%400==0):
+        print("29 days")
+    else:
+        print("28 days")
+elif month in days_31:
+    print("31 days")
+elif month in days_30:
+    print("30 days")
+else:
+    print("Invalid")
+
+
+
+i/p [20,10,30]
+o/p 302010
+
+li = [24,23,48]
+li.sort(reverse=True)
+#li.reverse()
+val=''
+for x in li:
+    val = val + '' + str(x)
+print(val)
+
+
+
+
+
+
+
+
+
+

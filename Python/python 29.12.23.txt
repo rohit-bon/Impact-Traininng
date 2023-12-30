@@ -1,0 +1,191 @@
+what is python:
+General purpose high level object oriented programming
+General purpose: Multiple applications
+1. Machine Learning and Data Science
+2. IOT and Embedded Systems
+3. Data Science
+High Level: simple, easy to understand, syntax --> English
+--------------------------------------------------------------------------------------------------------------------------
+#addition
+void main()
+{
+	int a,b,c;
+	a=10;
+	b=20;
+	c=a+b;
+	printf("%d",c);
+}#8 lines
+--------------------------------------------------------------------------------------------------------------------------
+#python:
+a,b=10,20
+print(a+b)#2 lines
+--------------------------------------------------------------------------------------------------------------------------
+Guido van rossum ----> Father of python
+--------------------------------------------------------------------------------------------------------------------------
+P.O.P ----> Missing security
+We can achieve security through object orientedd programming
+If any programming is implemented by follows oops prinnciple then it is called as object oriented programming
+--------------------------------------------------------------------------------------------------------------------------
+1. static
+	c, c++, java, .net
+2. dynamic
+	python, R
+
+Data Type:
+1. type of a variable(Applicable)
+2. size of a variable(Not applicable in python)
+
+Variable: a=10
+
+Data types in python:
+1. Dundamental
+2. Collection
+
+Fundamental: --> single value
+int, float, str, bool, complex
+int: 	a=10
+float: 	b=12.5
+str: 	s="Rohit"
+bool: 	s=4>2 #True
+	s=5<2 #False
+complex:s=2+4j
+
+Collection: -> Multiple Values
+s={"Rohit", "7015", "PIT", "7.67"]
+list, tuple, set and dict
+--------------------------------------------------------------------------------------------------------------------------
+print(): to print data on console
+id(): return address of variable
+type(): return type of variable
+--------------------------------------------------------------------------------------------------------------------------
+input(): Input function
+* In python programming we can read the data from the keyboard by using the predefined function called input
+* Input function by default returns string type of data, so we have to convert the data into our required type by using type conversion.
+* type conversion or type casting coverts the data from one type to another data type
+--------------------------------------------------------------------------------------------------------------------------
+#str
+name=input("Enter name: ")
+print(name)
+--------------------------------------------------------------------------------------------------------------------------
+#int
+a=int(input("Enter a value: "))
+b=int(input("Enter b value: "))
+print(a+b)
+--------------------------------------------------------------------------------------------------------------------------
+#multiple values
+a,b=map(int,input("Enter values").split(" "))
+--------------------------------------------------------------------------------------------------------------------------
+#float
+a=float(input("Enter value"))
+print(a)
+print(type(a))
+--------------------------------------------------------------------------------------------------------------------------
+Operator:
+Operator is a special kind of symbol and it perform a specific operation
+Operators are classified into 6 types
+1. arithmetic operator
+2. relational operators
+3. logical operators
+4. bitwise operators
+5. special operators
+6. conditional operators
+--------------------------------------------------------------------------------------------------------------------------
+Special operators:
+python supports 3 types of special operators 
+1. membership operators
+2. identity operators
+3. walrus operators
+
+Membership Operators:
+membership operators are used for comparision or searching related operations
+we have 2 types membership operators those are:
+1. in
+2. not in
+
+s="rohit"
+'r' in s -> True
+'b' in s -> False
+
+li = [1,2,3,4,5]
+4 in li -> True
+8 in li -> False
+--------------------------------------------------------------------------------------------------------------------------
+#read 2 numbers and find max
+a,b=map(int, input("Enter 2 values: ").split(" "))#12 5
+if(a>b):
+	print(f"{a} is max")
+else:
+	print(f"{b} is max")
+--------------------------------------------------------------------------------------------------------------------------
+# write a program to read a character from the user and check whether is is vowel or consonent
+
+ch=input("Enter a char: ")
+s='aeiouAEIOU'
+if ch in s:
+    print("It is vowel")
+else:
+    print("It is consonent")
+--------------------------------------------------------------------------------------------------------------------------
+Identity Operators
+
+identity operators are using to comapring the address
+there are 2 types of identity operators
+1. is
+2. is not
+
+a=10
+b=10
+a is b -> True
+a is not b -> False
+
+a=10
+b=20
+
+a is b -> False
+a is not b -> True
+--------------------------------------------------------------------------------------------------------------------------
+walrus operators
+
+using walrus operator we can reduce number of line in our code
+walrus operator is introduced from python 3.8 version
+
+#(a+b)2
+#without walrus operator
+a,b=2,3
+a1=a**2
+b1=b**2
+c1=2*a*b
+c=a1+b1+c1
+print(a1,b1,c1,c)
+
+#walrus(:=)
+a,b=3,2
+c=((a1:=a**2)+(b1:=b**2)+(c1:=2*a*b))
+print(a1,b1,c1,c)
+
+--------------------------------------------------------------------------------------------------------------------------
+# write a program to readd 2 numbers from the user and perform the addition operation in a single line using walrus and without using split
+
+print(c:=((a:=int(input()))+(b:=int(input()))))
+--------------------------------------------------------------------------------------------------------------------------
+Conditional Operator
+
+conditional operator requires 3 arguments 
+1. left side argument
+2. right side argument
+3. middle side argument
+
+middle side argument is condition 
+if the condition is evaluated as a true then left side argument will be return value
+if the condition is evaluated as a false then right side argumnet will return value
+
+using the condditional operator we can reduce number of lines in our code
+--------------------------------------------------------------------------------------------------------------------------
+# read 2 nos and find max
+a,b=map(int, input().split(" "))
+print("a is max" if(a>b) else "b is max")
+--------------------------------------------------------------------------------------------------------------------------
+# read 3 numbers and find max
+a,b,c = map(int, input().split(" "))
+print("equal" if(a==b==c) else "a is max" if(a>b and a>c) else "b is max" if(b>c) else "c is max")
+--------------------------------------------------------------------------------------------------------------------------
