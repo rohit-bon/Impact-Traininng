@@ -1,0 +1,293 @@
+#String methods
+>>> s="rohit it"
+>>> s.capitalize()
+'Rohit it'
+>>> s.title()
+'Rohit It'
+>>> s.upper()
+'ROHIT IT'
+>>> s.lower()
+'rohit it'
+>>> s.isupper()
+False
+>>> s.islower()
+True
+>>> s.isalpha()
+False
+>>> s.isalnum()
+False
+>>> s='12345'
+>>> s.isdigit()
+True
+>>> s="ROHIT123"
+>>> s.isalnum()
+True
+>>> s.isalpha()
+False
+--------------------------------------------------------------------------------------------------------------------------
+string1=input()
+string2=''
+for i in range(len(string1)):
+    if string1[i].isnumeric():
+        string2+=str(i)
+print(string2)
+
+i/p: Roh123it45
+o/p: 34589
+--------------------------------------------------------------------------------------------------------------------------
+string1=input()
+reverseStr=''
+for i in string1:
+    if i.isalpha():
+        reverseStr += i
+reverseStr = reverseStr[::-1]
+print(reverseStr)
+res = ''
+j=0
+for i in string1:
+    if i.isalpha():
+        res += reverseStr[j]
+        j+=1
+    else:
+        res += i
+print(res)
+
+#i/p: a1b2c3d4e
+#o/p: e1d2c3b4a
+--------------------------------------------------------------------------------------------------------------------------
+string1=input()
+count = 0
+for i in string1:
+    if i.isalpha() or i.isnumeric():
+        continue
+    else:
+        count += 1
+print(count)
+
+i/p: asfdhl@bj #oii!
+o/p: 4
+--------------------------------------------------------------------------------------------------------------------------
+string1 = input()
+vowel = ['a','e','i','o','u']
+res=''
+for i in string1:
+    if i in vowel:
+        ind = vowel.index(i)
+        if ind < len(vowel)-2:
+            res += vowel[ind+1]
+        else:
+            res += vowel[0]
+    else:
+        res += i
+
+print(res)
+
+i/p: koren
+o/p: kiran
+
+i/p: ramu
+o/p: rema
+--------------------------------------------------------------------------------------------------------------------------
+Python supports 4 types of collections those are 
+    list
+    tuple
+    set
+    dictionary
+
+All collection objects are used to store multiple values in a single variable
+
+list
+    list objects can be created by using '[]' brackets or by calling the list function
+    list is a mutable object i.e. we can update elements of  list 
+    insertion order is preserved 
+    duplicate elements are allowed in the list
+    list is a collection of homogenous and hetrogeneous elements
+    list supports both indexing and slicing 
+    Nested list
+        the list within the another list is called as nested list
+    list comprehension
+        using the list comprehension we can reduce number of lines in our code
+        the concept pf generating elements into list object by writing some logic in the list is known  as list comprehension
+--------------------------------------------------------------------------------------------------------------------------
+>>> l=[]
+>>> type(l)
+<class 'list'>
+>>> l=list()
+>>> type(l)
+<class 'list'>
+>>> l=list(range(1,11))
+>>> print(l)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> l=[1,2,3,4,5]
+>>> print(l)
+[1, 2, 3, 4, 5]
+>>> len(l)
+5
+>>> l=[1,2,3,4,2,1]
+>>> print(l)
+[1, 2, 3, 4, 2, 1]
+>>> l[2]
+3
+>>> id(l)
+1732039874432
+>>> l[2]=7
+>>> id(l)
+1732039874432
+>>>
+>>> l=[10,12,5,"Rohit"]
+>>> a,b,c=l
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack (expected 3)
+>>> l=[10,12.5,"Rohit"]
+>>> a,b,c=l
+>>> print(a,b,c)
+10 12.5 Rohit
+>>> l = list(range(10,110,10))
+>>> print(l)
+[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+>>> l[2:5]
+[30, 40, 50]
+>>> l[3:8]
+[40, 50, 60, 70, 80]
+>>> l[-2]
+90
+>>> l[-5]
+60
+>>> l[-5:-2]
+[60, 70, 80]
+--------------------------------------------------------------------------------------------------------------------------
+l=[1,2,3,4,5]
+i=0
+while(,<len(l):
+    print(l[i], end=" "))
+    i==1
+print()
+for p in l:
+    print(p,end=" ")
+print()
+for i in range(len(l)):
+    print(i,l[i])
+print(max(l))
+print(min(l))
+print(sum(l))
+avg=sum(l)/len(l)
+print(avg)
+
+
+o/p:
+1 2 3 4 5 
+1 2 3 4 5
+0 1
+1 2
+2 3
+3 4
+4 5
+5
+1
+15
+3.0
+--------------------------------------------------------------------------------------------------------------------------
+num = int(input())
+li=list(map(int,str(num)))
+li.sort(reverse=True)
+print(li)
+r=list(map(str,li))
+print(''.join(r))
+# for i in li:
+#     print(i,end="")
+
+I/P:
+4929421
+O/P:
+[9, 9, 4, 4, 2, 2, 1]
+9944221
+--------------------------------------------------------------------------------------------------------------------------
+num = int(input())
+li=list(map(int,str(num)))
+li.sort()
+if li[0] == 0:
+    temp = li[0]
+    li[0] = li[1]
+    li[1] = temp
+
+r=list(map(str,li))
+print(''.join(r))
+
+i/p: 863411901
+o/p: 101134689
+--------------------------------------------------------------------------------------------------------------------------
+Methods of list:
+    append(): This method add the element at end
+    insert(): This method will add multiple elements but all will be added at the end
+    extend(): This method will add multiple elements but all will be added at end
+    copy(): Using copy method we can copy the elemnts of one list into another list
+    counnt(): using this method we can find how many times that corresponding elementis repeated
+    index(): using this method we can find index position of corresponding element
+    remove(): using this method we can remove element based on value
+    del and pop(): this methods will remove the element based on idex position
+    sort(): this method arrange element on ascending order
+    reverse(): This method will arrange element on descending order
+    clear():: this method will clear all the element of list
+
+ l=[10,20,30,40,50,60]
+>>> l.append(70)
+>>> l.extend(10,20,30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: list.extend() takes exactly one argument (3 given)
+>>> l.extend([10,20,30])
+>>> l
+[10, 20, 30, 40, 50, 60, 70, 10, 20, 30]
+>>> l.insert(2,25)
+>>> l
+[10, 20, 25, 30, 40, 50, 60, 70, 10, 20, 30]
+>>> y=l.copy()
+>>> y
+[10, 20, 25, 30, 40, 50, 60, 70, 10, 20, 30]
+>>> l.remove(40)
+>>> l
+[10, 20, 25, 30, 50, 60, 70, 10, 20, 30]
+>>> l.pop()
+30
+>>> l
+[10, 20, 25, 30, 50, 60, 70, 10, 20]
+>>> l.pop(2)
+25
+>>> l
+[10, 20, 30, 50, 60, 70, 10, 20]
+>>> del l[2]
+>>> l
+[10, 20, 50, 60, 70, 10, 20]
+>>> del l[2:5]
+>>> l
+[10, 20, 10, 20]
+>>> l.index(20)
+1
+>>> l.index(20,2)
+3
+>>> l.count(20)
+2
+>>> d=[3,1,4,7,9,6,5]
+>>> d.sort()
+>>> d
+[1, 3, 4, 5, 6, 7, 9]
+>>> d=[3,1,5,9,2,4]
+>>> d.sort(reverse=True)
+>>> d
+[9, 5, 4, 3, 2, 1]
+>>> d=[3,2,1,4]
+>>> d.reverse()
+>>> d
+[4, 1, 2, 3]
+>>> d.clear()
+>>> d
+[]
+>>> l
+[10, 20, 10, 20]
+>>> y
+[10, 20, 25, 30, 40, 50, 60, 70, 10, 20, 30]
+>>> y[2:5]=[1,2,3]
+>>> y
+[10, 20, 1, 2, 3, 50, 60, 70, 10, 20, 30]
+--------------------------------------------------------------------------------------------------------------------------
