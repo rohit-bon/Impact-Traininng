@@ -153,13 +153,3 @@ val=''
 for x in li:
     val = val + '' + str(x)
 print(val)
-
-
-
-
-
-
-
-
-
-

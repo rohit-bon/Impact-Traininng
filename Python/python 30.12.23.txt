@@ -1,0 +1,320 @@
+elif
+using elif syntax from the multiple options we can select 1 opetion 
+if all conditions are false by default else block will be executed and writing else block is always optional
+--------------------------------------------------------------------------------------------------------------------------
+# Read a charater from a user and check whether it is uppercase or lowercase or digit or special character
+ch = input("Enter a character")
+if(ch >= 'A') and (ch <= 'Z'):
+    print("uppercase character")
+elif(ch >= 'a') and (ch <= 'z'):
+    print("lowercase character")
+elif(ch >= '0') and (ch <= '9'):
+    print("digit")
+else:
+    print("special character")
+--------------------------------------------------------------------------------------------------------------------------
+# >4000 ---> 4%
+# >3000 ---> 3%
+# >2000 ---> 2%
+# >1000 ---> 1%
+# <1000 ---> No discount 
+# after discount display final balance
+
+name = input("ENTER YOUR NAME: ")
+amt = int(input("Enter amount: "))
+
+if amt >= 4000:
+    print(f"Discount is 4% : Rs. {(amt/100) * 4 } amount you have to pay is {amt - (amt/100) * 4}")
+elif amt >= 3000:
+    print(f"Discount is 3% : Rs. {(amt/100) * 3 } amount you have to pay is {amt - (amt/100) * 3}")
+elif amt >= 2000:
+    print(f"Discount is 2% : Rs. {(amt/100) * 2 } amount you have to pay is {amt - (amt/100) * 2}")
+elif amt >= 1000:
+    print(f"Discount is 1% : Rs. {(amt/100) * 1 } amount you have to pay is {amt - (amt/100) * 1}")
+else:
+    print(f"No Discount.")
+--------------------------------------------------------------------------------------------------------------------------
+Nested if condition 
+if condition within another if condition is called as Nested if 
+in the nested if we  have outer if condition and inner if condition
+if outer if condition is true then only we check the inner if condition
+--------------------------------------------------------------------------------------------------------------------------
+# write a program to read name of the student rollno and 3 subject marks, if student is pass calculate the grade of the student 
+name = input("Enter your name: ")
+roll = int(input("Roll number: "))
+s1,s2,s3 = map(int, input("Enter marks of 3 subject: ").split(","))
+print(f"Name: {name}\nRoll no: {roll}\nMarks of S1: {s1}\nMarks of S2: {s2}\nMarks of S3: {s3}")
+if s1>35 and s2>35 and s3>35:
+    total = s1+s2+s3
+    average = total/3
+    if average>90:
+        print(f"{name} You Secured Grade A+")
+    elif average>75:
+        print(f"{name} You Secured Grade A")
+    elif average>60:
+        print(f"{name} You Secured Grade B")
+    elif average>50:
+        print(f"{name} You Secured Grade C")
+    elif average>35:
+        print(f"{name} You Passed")
+    else:
+        print(f"{name} You are failed")
+else:
+    print(f"{name} You are failed")
+--------------------------------------------------------------------------------------------------------------------------
+# write a program to read a number from the user and check  whether it is divisible by 3 and 5 or not.
+num=int(input("Enter a Number: "))
+if num % 3 == 0:
+    if num % 5 == 0:
+        print(f"{num} is divisible by 3 and 5.")
+    else:
+        print(f"{num} is divisible by 3.")
+else:
+    if num  % 5 == 0:
+        print(f"{num} is divisible by 5.")
+    else:
+        print(f"{num} is not divisible by 3 and 5.")
+--------------------------------------------------------------------------------------------------------------------------
+Strings:
+1. It is a collection of char (or) array of char
+2. string indexing start with zero and end with n-1
+3. we can find length of string using len function
+4. we can declare string in 3 ways.
+    1. single quotes
+    2. double quotes
+    3. triple quotes
+--> string supports both positive and negative indexing
+    * Positive indexinng starts from zero and end with n-1
+    * Negative indexing starts from -1 and end with -(n+1)
+
+string indexing: Accessing char from string.
+slicing: Accesing sub string or set of characters in string
+--------------------------------------------------------------------------------------------------------------------------
+>>> s="rohit it"
+>>> print(s)
+rohit it
+>>> len(s)
+8
+>>> s+s
+'rohit itrohit it'
+>>> s+ " " +s
+'rohit it rohit it'
+>>> s*2
+'rohit itrohit it'
+>>> s*s
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> s*len(s)
+'rohit itrohit itrohit itrohit itrohit itrohit itrohit itrohit it'
+--------------------------------------------------------------------------------------------------------------------------
+indexing and Slicing
+**Forward Direction Supported and backward is not Supported**
+Positive Indexing
+>>> s[::1]
+'rohit it'
+>>> s[::2]
+'rhti'
+>>> s[::-1]
+'ti tihor'
+>>> s[::-2]
+'t io'
+>>> s[::1][::2]
+'rhti'
+>>> s[8:2]
+''
+>>> s[7:2]
+''
+Negative Indexing 
+>>> s[-2]
+'i'
+>>> s[-2:-5]
+''
+>>> s[-2:-5:-1]
+'i t'
+>>> s[-1:-8:-2]
+'t io'
+>>> s[::-1]
+'ti tihor'
+>>> s[::-2]
+'t io'
+>>> s[2:-2]
+'hit '
+>>> s[:-5]
+'roh'
+>>> s[-4:]
+'t it'
+--------------------------------------------------------------------------------------------------------------------------
+s="Rohit"
+r=1
+print(f"{s[r:]}{s[:r]}")
+o/p: ohitR
+
+
+s="Rohit"
+r=2
+news=''
+news=s[r:]+s[:r]
+print(f"{news}")
+o/p: hitRo
+
+
+s="Rohit"
+r=2
+news=''
+news=s[-r:]+s[:-r]
+print(f"{news}")
+o/p: itRoh
+--------------------------------------------------------------------------------------------------------------------------
+#i/p:
+    5
+    1 2 3 4 5
+    2
+
+#o/p: 
+    4 5 1 2 3
+
+
+n=int(input())
+li = list(map(int, input().split(" ")))[:n]
+r=int(input())
+d=[]
+d=li[-r:]+li[:-r]
+print(*d)
+--------------------------------------------------------------------------------------------------------------------------
+#Control Statements
+python programming supports 2 types of control Statements
+    1. for loop
+    2. while loop
+For loop
+    for loop is applicable for iterable objects only 
+    Iterable Objects:
+        the objects which contain sequence of elements that object will be called as iterable objects
+        eg: all collections like list, tuple, set, dictionaries, and Strings
+    we can't apply for loop on non recurrable objects 
+    eg: all fundamentals data types except string
+
+>>> s="Rohit"
+>>> for i in s:
+...     print(i,end=" ")
+...
+R o h i t >>>
+>>> l=[2,4,6,8,10]
+>>> for p in l:
+...     print(p,end=" ")
+...
+2 4 6 8 10 >>>
+>>> for p in range(len(l)):
+...     print(p,l[p])
+...
+0 2
+1 4
+2 6
+3 8
+4 10
+>>> for p in range(1,11):
+...     print(p,end=" ")
+...
+1 2 3 4 5 6 7 8 9 10 >>>
+>>> for p in range(2,21,2):
+...     print(p,end=' ')
+...
+2 4 6 8 10 12 14 16 18 20 >>>
+
+--------------------------------------------------------------------------------------------------------------------------
+s=input()
+s=s.lower()
+r=''
+for i in range(97, 123):
+    d=chr(i)
+    if d not in s:
+        r=r+d
+print(r)
+
+i/p: hello
+o/p: abcdfgijkmnpqrstuvwxyz
+--------------------------------------------------------------------------------------------------------------------------
+str = input().split(" ")
+for i in str:
+    print(i[::-1], end=" ")
+
+i/p: My name is Rohit
+o/p: yM eman si tihoR
+--------------------------------------------------------------------------------------------------------------------------
+# write a program to print prime nos between 1 to 50
+n=int(input())
+for i in range(2, n+1):
+    c=0
+    for j in range(1, i+1):
+        if(i%j == 0):
+            c=c+1
+    if(c==2):
+        print(i, end=" ")
+--------------------------------------------------------------------------------------------------------------------------
+# program to find perfect number
+n= int(input())
+for i in range(1, n+1):
+    sum = 0
+    for j in range (1, i):
+        if i%j == 0:
+            sum += j
+    if sum == i:
+        print(i, end=' ')
+
+i/p: 100
+o/p: 6 28
+--------------------------------------------------------------------------------------------------------------------------
+s=input()
+otp = ''
+for i in s:
+    num = int(i)
+    if num%2!=0:
+        otp = otp+ str(num**2)
+print(otp)
+
+i/p: 13456
+o/p: 1925
+--------------------------------------------------------------------------------------------------------------------------
+# While Loop
+i=1;
+while(i<=10):
+    print(i)
+    i+=1
+    
+i=1;
+while(i<=10):
+    if i%2 ==0:
+        print(i)
+    i+=1
+
+i=30
+while(i<=50):
+    if i%2 != 0:
+        print(i)
+    i+=1
+--------------------------------------------------------------------------------------------------------------------------
+#write a program to print sum of digits
+n=int(input())
+s=0
+while(n!=0):
+    r=n%10
+    s+=r
+    n=n//10
+print(s)
+
+i/p: 1234356
+o/p: 24
+--------------------------------------------------------------------------------------------------------------------------
+#Palindrome
+num=int(input())
+num2 = num
+s=0
+while(num!=0):
+    r=num%10
+    s=(s*10)+r
+    num=num//10
+if (num2 == s):
+    print("Number is Palindrome")
+else:
+    print("Number is not Palindrome")
+--------------------------------------------------------------------------------------------------------------------------
