@@ -1,0 +1,192 @@
+l=[1,4,"Rohit","sunil",5,3,"lata",2,"rajshree"]
+num_list=[]
+string_list=[]
+for i in l:
+    if type(i) == int:
+        num_list.append()
+    else:
+        string_list.append()
+
+print(num_list)
+print(string_list)
+num_list.sort()
+string_list.sort()
+print(num_list + string_list)
+
+o/p:
+[1, 4, 5, 3, 2]
+['Rohit', 'sunil', 'lata', 'rajshree']
+[1, 2, 3, 4, 5, 'Rohit', 'lata', 'rajshree', 'sunil']
+--------------------------------------------------------------------------------------------------------------------------
+write a program to read list element from thw user with and without using for loop
+li=list(map(int,input().split()))
+print(li)
+
+n=int(input())
+li=list(map(int,input().split()))[:n]
+print(li)
+
+n=int(input())
+r=[]
+for i in range (n):
+    val = int(input())
+    r.append(val)
+print(r)
+
+# o/p:
+# 1 2 3 4 5
+# [1, 2, 3, 4, 5]
+# 4
+# 1 2 3 4
+# [1, 2, 3, 4]
+# 4
+# 1  
+# 2
+# 3
+# 4
+# [1, 2, 3, 4]
+--------------------------------------------------------------------------------------------------------------------------
+n=int(input())
+li=list(map(int,input().split()))[:n]
+res=[]
+li.sort()
+count=len(li) - 1
+ind=0
+for i in range(len(li)):
+    if i % 2 == 0:
+        res.append(li[ind])
+        ind +=1
+    else:
+        res.append(li[count])
+        count -= 1
+print(*res)
+
+# o/p: 
+# 7
+# 5 2 3 4 6 5 -2
+# -2 6 2 5 3 5 4
+
+# logic 2
+r=[]
+for i in range(len(li)//2):
+    r.append(li[i])
+    r.append(li[-(i+1)])
+if(len(li) % 2 !=0):
+    r.append(li[len(li)//2])
+print(*r) 
+
+o/p:
+7
+5 2 3 4 6 5 -2
+-2 6 2 5 3 5 4
+-2 6 2 5 3 5 4
+--------------------------------------------------------------------------------------------------------------------------
+n=int(input())
+li=list(map(int, input().split()))[:n]
+res=[]
+for i in li:
+    if i not in res:
+        res.append(i)
+print(*res)
+
+o/p:
+8
+1 1 3 2 1 4 5 4
+1 3 2 4 5
+--------------------------------------------------------------------------------------------------------------------------
+n=int(input())
+li=[]
+for i in range (n):
+    op=input().split()
+    if op[0] == 'insert':
+        li.insert(int(op[1]), int(op[2]))
+    if op[0] == 'print':
+        print(li)
+    if op[0] == 'remove':
+        li.remove(int(op[1]))
+    if op[0] == 'append':
+        li.append(int(op[1]))
+    if op[0] == 'sort':
+        li.sort()
+    if op[0] == 'pop':
+        li.pop()
+    if op[0] == 'reverse':
+        li = li[::-1]
+        
+        
+# o/p:
+# 12
+# insert 0 5
+# insert 1 10
+# insert 0 6
+# print
+# [6, 5, 10]
+# remove 6
+# append 9
+# append 1
+# sort
+# print
+# [1, 5, 9, 10]
+# pop
+# reverse
+# print
+# [9, 5, 1]
+--------------------------------------------------------------------------------------------------------------------------
+num = int(input())
+num_list=list(map(int,str(num)))
+even_list=[]
+odd_list=[]
+# res=[even_list(i) if(i%2==0) else odd_list(i) for i in num_list]
+for i in num_list:
+    if i%2==0:
+        even_list.append(i)
+    else:
+        odd_list.append(i)
+even_list.reverse()
+odd_list.sort()
+res= odd_list + even_list
+res = int("".join([str(i) for i in res]))
+print(res)
+
+# i/p: 2143658709
+# o/p: 1357908642
+--------------------------------------------------------------------------------------------------------------------------
+string1=input()
+n = len(string1)
+fibo = [1,1]
+f1 = 1
+f2 = 1
+s = 0
+for i in range(n-2):
+    s = f1 + f2
+    f1 = f2
+    f2 = s
+    fibo.append(s)
+res = [sum(fibo)]
+string_list = list(map(str, string1))
+
+for i in range(n):
+    res.append(string_list[i])
+    res.append(fibo[i])
+result=''
+for i in res:
+    result += str(i)
+print(result)
+
+# i/p: abcde
+# o/p: 12a1b1c2d3e5
+--------------------------------------------------------------------------------------------------------------------------
+#[1,2,3,4,3,5,3,7,3]
+#remove 3---> by writing remove stat only one time
+
+num = list(map(int, input().split()))
+n = int(input())
+for i in num:
+    if i == n:
+        num.remove(i)
+print(num)
+
+#i/p: 1 2 6 32 7 3 6 2 6 3 2
+#     2
+#o/p: [1, 6, 32, 7, 3, 6, 6, 3]
+--------------------------------------------------------------------------------------------------------------------------
