@@ -1,0 +1,477 @@
+n=int(input())
+count = 0
+number_list=[]
+for i in range(n):
+    string1=input()
+    string_list=list(map(str, string1))
+    num=''
+    for j in range(10):
+        num += string_list[j]
+    age = int(string_list[-4]+string_list[-3])
+    if age>= 60:
+        count += 1
+        number_list.append(num)
+print(count)
+print(*number_list)
+
+
+i/p:
+3
+7972590082M2312
+9923717793M6103
+7867564534M3212
+o/p:
+1
+9923717793
+--------------------------------------------------------------------------------------------------------------------------
+n=int(input())
+num_list = list(map(int, input().split()))
+leader_ele = []
+for i in range(len(num_list)):
+    flag = True
+    for j in range(i, len(num_list)):
+        if num_list[i] < num_list[j]:
+            flag = False
+    if flag:
+        leader_ele.append(num_list[i])
+sum = 0
+for i in leader_ele:
+    sum = sum+i
+print(sum)
+
+# i/p:
+# 7
+# 52 66 64 36 45 24 32
+# o/p:
+# 207
+--------------------------------------------------------------------------------------------------------------------------
+Dictionary
+    Dictionary objects can be created by using '{}' or by calling dict function
+    dictionary is a mutable object 
+    insertion order is preserved
+    indexing is not supported
+    duplicate keys are not allowed
+    duplicate values are allowed
+    dictionary is a collection of homogeneous and hetrogeneous keys and values
+    indexing and slicing are not supported in dictionary
+    dictionaryis a collection og key and value pair, the key and value pair is called as an item
+
+
+>>> d={}
+>>> type(d)
+<class 'dict'>
+>>> d={'a':10,'b':20,'c':40,'e':50}
+>>> print(d)
+{'a': 10, 'b': 20, 'c': 40, 'e': 50}
+>>> d['f']=20
+>>> d
+{'a': 10, 'b': 20, 'c': 40, 'e': 50, 'f': 20}
+>>> d[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 0
+>>> d={'a':10,'b':12.5,'c':"Rohit"}
+>>> d
+{'a': 10, 'b': 12.5, 'c': 'Rohit'}
+>>> len(d)
+3
+>>> d['g']=90
+>>> d
+{'a': 10, 'b': 12.5, 'c': 'Rohit', 'g': 90}
+
+--------------------------------------------------------------------------------------------------------------------------
+e={
+    "Name":"Rohit",
+    "id":101,
+    "Dept":"CSE",
+    "Salary":250000
+}
+
+print(e)
+print(e["Dept"])
+d=e.get("Salary")
+print(d)
+e["Salary"]=350000
+print(e)
+e["Subject"]="Flutter"
+print(e)
+for i in e.keys():
+    print(i)
+for i in e.values():
+    print(i)
+for i,j in e.items():
+    print(i,j)
+for i in e.items():
+    print(i)
+for i in e.items():
+    print(i[0], i[1])
+r=sorted(list(e.keys()))
+print(r)
+
+
+# o/p:
+# {'Name': 'Rohit', 'id': 101, 'Dept': 'CSE', 'Salary': 250000}
+# CSE
+# 250000
+# {'Name': 'Rohit', 'id': 101, 'Dept': 'CSE', 'Salary': 350000}
+# {'Name': 'Rohit', 'id': 101, 'Dept': 'CSE', 'Salary': 350000, 'Subject': 'Flutter'}
+# Name
+# id
+# Dept
+# Salary
+# Subject
+# Rohit
+# 101
+# CSE
+# 350000
+# Flutter
+# Name Rohit
+# id 101
+# Dept CSE
+# Salary 350000
+# Subject Flutter
+# ('Name', 'Rohit')
+# ('id', 101)
+# ('Dept', 'CSE')
+# ('Salary', 350000)
+# ('Subject', 'Flutter')
+# Name Rohit
+# id 101
+# Dept CSE
+# Salary 350000
+# Subject Flutter
+# ['Dept', 'Name', 'Salary', 'Subject', 'id']
+
+--------------------------------------------------------------------------------------------------------------------------
+Dictionary Comprehension
+    the concept of generating elements into dictionary objects by writing some logic in the dictionaryis know as dictionary Comprehension
+    by using the dictionary Comprehension we can reduce number of lines in our code
+
+Write a program to print squares of even numbers from 1 to 20(key is a number and value is square of number)
+
+my_dict={i:i*i for i in range(1,21) if i%2 ==0}
+print(my_dict)
+
+
+# o/p:
+# {2: 4, 4: 16, 6: 36, 8: 64, 10: 100, 12: 144, 14: 196, 16: 256, 18: 324, 20: 400}
+--------------------------------------------------------------------------------------------------------------------------
+write a program to print cubes of odd numbers from 30 to 50
+
+my_dict={i:i**3 for i in range(30,51) if i%2 != 0}
+print(my_dict)
+
+# o/p:
+#     {31: 29791, 33: 35937, 35: 42875, 37: 50653, 39: 59319, 41: 68921, 43: 79507, 45: 91125, 47: 103823, 49: 117649}
+--------------------------------------------------------------------------------------------------------------------------
+val="Nagpur"
+my_dict={i:val.count(i) for i in val}
+print(my_dict)
+
+
+# o/p:
+#     {'N': 1, 'a': 1, 'g': 1, 'p': 1, 'u': 1, 'r': 1}
+--------------------------------------------------------------------------------------------------------------------------
+write a program to read string from the user and print vowel character count
+
+my_string=input()
+my_dict = {i:my_string.count(i) for i in my_string if i in 'aeiou'}
+print(my_dict)
+
+
+# o/p:
+#     {'a': 1, 'u': 1}
+--------------------------------------------------------------------------------------------------------------------------
+my_string = input()
+my_dict = {i:my_string.count(i) for i in my_string if i in "aeiou"}
+ma=0
+max_vowel=''
+for i,j in my_dict.items():
+    if j >= ma:
+        ma = j
+        max_vowel = i
+
+print(max_vowel)
+
+
+
+# i/p: abeiabfiabgiabdia
+# o/p: a
+
+
+# Logic2:
+s=input()
+d={i:s.count(i) for i in s if i in "aeiou"}
+m=max(d.values())
+for i,j in d.items():
+    if j == m:
+        print(i)
+
+
+# o/p:     
+# maharashtra
+# a
+--------------------------------------------------------------------------------------------------------------------------
+my_strinng=input()
+my_char=input()
+my_dict={i:my_strinng.count(i) for i in my_strinng}
+max_value = max(my_dict.values())
+li = []
+for i,j in my_dict.items():
+    if j == max_value:
+        li.append(i)
+li.sort()
+res=''
+for i in my_strinng:
+    if i == li[0]:
+        res += my_char
+    else:
+        res += i
+print(res)
+
+
+# i/p:
+# liril
+# t
+# o/p:
+# ltrtl
+--------------------------------------------------------------------------------------------------------------------------
+my_dict={
+    "rohit":21,
+    "lata":43,
+    "sunil":52,
+    "gundu":18,
+}
+list_keys=sorted(my_dict.keys())
+dict_keys={}
+for i in list_keys:
+    dict_keys[i] = my_dict[i]
+print(dict_keys)
+
+
+# o/p:
+# {'gundu': 18, 'lata': 43, 'rohit': 21, 'sunil': 52}
+--------------------------------------------------------------------------------------------------------------------------
+my_dict={
+    "rohit":21,
+    "lata":43,
+    "sunil":52,
+    "gundu":18,
+}
+list_keys=sorted(my_dict.values())
+dict_keys={}
+for i in list_keys:
+    for j,k in my_dict.items():
+        if i == k:
+            dict_keys.update({j:k})
+print(dict_keys)
+
+o/p:
+# {'gundu': 18, 'rohit': 21, 'lata': 43, 'sunil': 52}
+--------------------------------------------------------------------------------------------------------------------------
+Nested Dictionary
+    dictionary within another dictionary is called as Nested dictionary
+
+my_dict={
+    "rohit":[39,24,56],
+    "lata":[43,53,62],
+    "sunil":[52,35,12],
+    "gundu":[18,45,67],
+}
+for i,j in my_dict.items():
+    average = sum(j)/len(j)
+    print(f"{i} : Average is %.2f"%average)
+    
+    
+    
+# o/p:
+# rohit : Average is 39.67
+# lata : Average is 52.67
+# sunil : Average is 33.00
+# gundu : Average is 43.33
+--------------------------------------------------------------------------------------------------------------------------
+n=int(input())
+my_dict={}
+for i in range(n):
+    my_input = input().split()
+    my_list=[int(my_input[1]),int(my_input[3]),int(my_input[3])]
+    my_dict.update({my_input[0]:my_list})
+res=input()
+average = sum(my_dict[res])/len(my_dict[res])
+# print(my_dict)
+print("%.2f"%average)
+
+
+# i/p:
+# 3
+# rohit 23 34 45
+# sunil 34 45 56
+# lata 56 67 67
+# sunil
+# o/p:
+# 48.67
+--------------------------------------------------------------------------------------------------------------------------
+my_dict={
+    "Rohit" : {
+        "python" : 35,
+        "flutter" : 100,
+        "django" : 67
+    },
+    "Karan" : {
+        "python" : 55,
+        "flutter" : 30,
+        "django" : 54
+    },
+    "Kartik" : {
+        "python" : 65,
+        "flutter" : 50,
+        "django" : 76
+    }
+}
+for i in my_dict.keys():
+    marks = my_dict[i].values()
+    print(i)
+    print("-------------------------")
+    for j in marks:
+        print(j)
+    print("\n")
+    
+    
+# o/p:
+# Rohit
+# -------------------------
+# 35
+# 100
+# 67
+
+
+# Karan
+# -------------------------
+# 55
+# 30
+# 54
+
+
+# Kartik
+# -------------------------
+# 65
+# 50
+# 76
+
+--------------------------------------------------------------------------------------------------------------------------
+>>> s="Good Morning all"
+>>> r=s.split()
+>>> print(r)
+['Good', 'Morning', 'all']
+>>> for i in r:
+...     print(i)
+...
+Good
+Morning
+all
+>>> s=["Python","ML","DS","AI"]
+>>> r="-".join(s)
+>>> print(r)
+Python-ML-DS-AI
+>>> r=" ".join(s)
+>>> print(r)
+Python ML DS AI
+>>> s="nagpur pune"
+>>> s.count('u')
+2
+>>> s.index('p')
+3
+>>> s.index('p',4,9)
+7
+>>> s.index('n',14)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+>>> s.index('n',9)
+9
+>>> s.find('u')
+4
+>>> s.rfind('p')
+7
+>>> s.rfind('p',9,1)
+-1
+>>> s.startswith('m')
+False
+>>> s.startswith('p')
+False
+>>> s.endswith('e')
+True
+>>> s.replace('e','a')
+'nagpur puna'
+>>> s='Modi is pm of india'
+>>> s.replace('Modi','Gadkari')
+'Gadkari is pm of india'
+>>>
+>>> s="Rohit"
+>>> s.find('s')
+-1
+>>> s.index('s')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+>>> s=" maharashtra nagpur "
+>>> s.strip()
+'maharashtra nagpur'
+>>> s.center(11,"$")
+' maharashtra nagpur '
+>>> s="Rohit"
+>>> s.center(11,"$")
+'$$$Rohit$$$'
+>>> s.center(12,"$")
+'$$$Rohit$$$$'
+>>> s="ROhit"
+>>> s.swapcase()
+'roHIT'
+>>> s=''
+>>> s.isspace()
+False
+>>> s=' '
+>>> s.isspace()
+True
+>>>
+--------------------------------------------------------------------------------------------------------------------------
+write a program to read string from the user and find reverse of a string and check whether it is palindrome or not
+
+string1=input()
+string2=''
+i=len(string1) - 1
+while(i!=-1):
+    string2 += string1[i]
+    i -= 1
+if string1 == string2:
+    print("Palindrome")
+else:
+    print("Not palindrome")
+    
+    
+    
+    
+# o/p:
+# nitin
+# Palindrome
+
+# rohit
+# Not palindrome
+
+--------------------------------------------------------------------------------------------------------------------------
+string1= input()
+vowel=0
+consonent=0
+for i in string1:
+    if i in "aeiouAEIOU":
+        vowel+=1
+    elif i in "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ":
+        consonent +=1
+print(f"Vowel count = {vowel}")
+print(f"Consonent count = {consonent}")
+        
+o/p:
+Rohit Bongade
+Vowel count = 5
+Consonent count = 7
+--------------------------------------------------------------------------------------------------------------------------
