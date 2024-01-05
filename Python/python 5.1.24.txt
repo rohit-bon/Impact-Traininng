@@ -1,0 +1,337 @@
+Tuple:
+    tuple objects can be created by using '() by call tuple function
+    by assigning more than 1 value to single variable tuple object will be created
+    tuple is immutable object
+    insertion is preserved
+    duplicate elements are allowed
+    tuple supports both indexing and slicing
+    tuple is a collection of homogeneous and hetrogeneous elements
+
+>>> t=()
+>>> type(t)
+<class 'tuple'>
+>>> t=tuple()
+>>> type(t)
+<class 'tuple'>
+>>> t=tuple(range(1,11))
+>>> t
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+>>> t=1,2,3,4,5
+>>> t
+(1, 2, 3, 4, 5)
+>>> type(t)
+<class 'tuple'>
+>>> t=(1,2,3,4,5)
+>>> t
+(1, 2, 3, 4, 5)
+>>> t=(1,2,3,4,5,1,2)
+>>> t
+(1, 2, 3, 4, 5, 1, 2)
+>>> t[2]
+3
+>>> t[2]=4
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> t=(10,12.5,"Rohit", 3+4)
+>>> t
+(10, 12.5, 'Rohit', 7)
+>>> t[1:3]
+(12.5, 'Rohit')
+>>>
+
+--------------------------------------------------------------------------------------------------------------------------
+num = int(input())
+li=[]
+while(num>0):
+    li.append(num%2)
+    num = num // 2
+print(*li)
+
+
+# o/p:
+# 10
+# 0 1 0 1
+--------------------------------------------------------------------------------------------------------------------------
+Functions: 
+    function is a sub-program and it perform specific operations
+    a self-contained block of 1 or more statements is called as function
+
+Advantages of a Function:
+    Reusability(writing the code only once but we can use more than once)
+    Understanding the logoc becomes easy
+    In python programming we can define a function using def keyword 
+    functions are divided into 4 types 
+        1. function without argument and without return
+        2. function with argument and without return type
+        3. function with argument and with return type
+        4. function without argument and with return type(Not mostly used)
+    
+Function without argument and without return:
+
+def even_odd():
+    n=int(input("Enter a value: "))
+    if(n%2 == 0):
+        print(n,"is even")
+    else:
+        print(n,"is odd")
+even_odd()
+d=even_odd
+d()
+
+
+Function with argument and without return type
+
+def even_odd(n):
+    if(n%2 == 0):
+        print(n,"is even")
+    else:
+        print(n,"is odd")
+n=int(input("Enter a value: "))
+even_odd(n)
+
+
+Function with argument and with return type
+    in this approach will pass the argument form main program to sub-program and sub-program will return the value back to main program
+
+def even_odd(n):
+    if(n%2 == 0):
+        return "even"
+    else:
+        return "odd"
+n=int(input("Enter a value: "))
+s=even_odd(n)
+if(s=="even"):
+    print(n,"is even")
+else:
+    print(n,"is odd")
+--------------------------------------------------------------------------------------------------------------------------
+def even_odd(n):
+    if (n%2 == 0):
+        return 0
+    else:
+        return 1
+n = int(input())
+r = even_odd(n)
+if(r==0):
+    print(n,"is even")
+else:
+    print(n,"is odd")
+
+o/p:
+10 
+10 is even
+--------------------------------------------------------------------------------------------------------------------------
+def weight_of_string(string):
+    s = 0
+    for i in string:
+        weight = 10**(ord(i)-ord('A'))
+        s += weight
+    return s
+string = input()
+res=weight_of_string(string)
+print(res)
+
+
+# p/p:
+# DCCBAA
+# 1212
+--------------------------------------------------------------------------------------------------------------------------
+def check_palindrome(my_list):
+    flag = True
+    for i in my_list:
+        i=str(i)
+        if i != i[::-1]:
+            flag = False
+    return flag
+n = int(input())
+my_List = list(map(int, input().split()))[:n]
+res = check_palindrome(my_List)
+if res:
+    print("Yes")
+else:
+    print("No")
+    
+
+# 3
+# 121 131 444
+# Yes
+--------------------------------------------------------------------------------------------------------------------------
+def replace_string(my_string, sub, new):
+    res = my_string.replace(sub, new)
+    return res
+string = input()
+sub = input()
+new = input()
+res =  replace_string(string, sub, new)
+print(res)
+
+
+# o/p:
+# Hi Rohit
+# Hi
+# Hello
+# Hello Rohit
+--------------------------------------------------------------------------------------------------------------------------
+Lambda Function:
+    lambda is a special function 
+    the function doesn't have any name that function is called as a lambda or anonymous function
+    using the lambda function we can reduce number of lines in our code
+    lambda is called as higher order function
+
+def add(a,b):
+    c=a+b
+    return c
+c=add(10,5)
+print(c)
+
+# Lambda 
+s = lambda a,b:a+b 
+r = s(10,15)
+print(r)
+
+#eve numbers
+s= lambda x:x%2==0
+l = [1,2,3,4,5,6]
+r = [i for i in l if s(i)]
+print(r)
+
+# odd numbers(30,50)
+s= lambda x:x%2!=0
+l = []
+for i in range(30,50):
+    l.append(i)
+r = [i for i in l if s(i)]
+print(r)
+
+o/p:
+15
+25
+[2, 4, 6]
+[31, 33, 35, 37, 39, 41, 43, 45, 47, 49]
+--------------------------------------------------------------------------------------------------------------------------
+write a program to find factorial of number from 5 to 10 in 3 lines
+
+import math
+s=lambda x:math.factorial(x)
+print(*[s(i) for i in range(5,11)])
+
+
+# o/p:
+# 120 720 5040 40320 362880 3628800
+--------------------------------------------------------------------------------------------------------------------------
+write a program to perform add, sub, mul, div using single function and lambda
+l = lambda x, y: (x + y, x - y, x * y, x / y)
+a,s,m,d = l(15,10)
+print(f"Addition: {a}")
+print(f"Subtraction: {s}")
+print(f"Multiplication: {m}")
+print(f"Division: {d}")
+
+
+
+def op(a,b,s):
+    r=s(a,b)
+    return r
+s1=op(10,5,lambda a,b:a+b)
+s2=op(10,5,lambda a,b:a-b)
+s3=op(10,5,lambda a,b:a*b)
+s4=op(10,5,lambda a,b:a/b)
+print(s1,s2,s3,s4)
+
+# o/p:
+# Addition: 25
+# Subtraction: 5
+# Multiplication: 150
+# Division: 1.5
+# 15 5 50 2.0
+--------------------------------------------------------------------------------------------------------------------------
+map and filter function
+    filter requires a condition but map requires a expression
+
+
+FILTER
+# with filter and without lambda 
+def even(n):
+    return n%2 == 0
+l=list(range(10,31))
+r=list(filter(even,l))
+print(r)
+
+# with filter and with lambda 
+l=list(range(10,31))
+r=list(filter(lambda x:x%2 == 0,l))
+print(r)
+
+# with filter and without lambda 
+def positive(n):
+    return n>0
+l=list(range(-5,6))
+r=list(filter(positive,l))
+print(r)
+
+# with filter and with lambda 
+l=list(range(-5,6))
+r=list(filter(lambda x:x<0,l))
+print(r)
+
+
+l=["abc","ABC","xyz","WRT"]
+r=list(filter(lambda x:x.isupper(),l))
+print(r)
+
+
+# o/p:
+# [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+# [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+# [1, 2, 3, 4, 5]
+# [-5, -4, -3, -2, -1]
+# ['ABC', 'WRT']
+
+
+MAP
+def sq(n):
+    return n*n
+l=[1,2,3,4,5]
+r=tuple(map(sq,l))
+print(r)
+
+l=[1,2,3,4,5]
+r=tuple(map(lambda x:x*x,l))
+print(r)
+
+s=["abc","xyz","rqt"]
+r=tuple(map(lambda x:x.upper(),s))
+print(r)
+
+
+# o/p:
+# (1, 4, 9, 16, 25)
+# (1, 4, 9, 16, 25)
+# ('ABC', 'XYZ', 'RQT')
+--------------------------------------------------------------------------------------------------------------------------
+reduce
+    reduce is a function it is imported from functools models
+
+from functools import reduce
+s=[1,2,3,4,5]
+r=reduce(lambda a,b:a+b,s)
+print(r)
+
+
+s=[1,2,3,4,5]
+r=reduce(lambda a,b:a*b,s)
+print(r)
+
+d=[12,3,15,9,17,21,25,1]
+mi = reduce(lambda a,b:a if a<b else b,d)
+print(mi)
+ma = reduce(lambda a,b:a if a>b else b,d)
+print(ma)
+
+# o/p:
+# 15
+# 120
+# 1
+# 25
+--------------------------------------------------------------------------------------------------------------------------
