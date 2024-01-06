@@ -1,0 +1,563 @@
+iterators
+    using iterator we can return only 1 value 
+
+enumerator
+    it will return the value along with the count 
+    the default count starts from zero
+
+generators
+    the return statement can return only one value at a time 
+    the generator can return multiple values 
+    generator internally use yield and next method for returning multiple values
+    A function which returns a generator iterator. It looks like a normal function except that it contains yield expression for producing a series of values usable in a for-loop or that can be retrieved one at a time with thw next function.
+--------------------------------------------------------------------------------------------------------------------------
+iterators:
+
+>>> s=[1,2,3,4,5]
+>>> r=iter(s)
+>>> next(r)
+1
+>>> next(r)
+2
+>>> next(r)
+3
+>>> next(r)
+4
+>>> next(r)
+5
+>>> next(r)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>>
+>>> s=[1,2,3,4,5]
+>>> r=iter(s)
+>>> for i in r:
+...     print(i)
+...
+1
+2
+3
+4
+5
+>>>
+--------------------------------------------------------------------------------------------------------------------------
+Enumerator:
+
+>>> l=[1,2,3,4,5]
+>>> r=enumerate(l)
+>>> next(r)
+(0, 1)
+>>> next(r)
+(1, 2)
+>>> next(r)
+(2, 3)
+>>> next(r)
+(3, 4)
+>>> next(r)
+(4, 5)
+>>> next(r)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> l=[10,20,30,40,50]
+>>> r=enumerate(l,5)
+>>> next(r)
+(5, 10)
+>>> next(r)
+(6, 20)
+>>> next(r)
+(7, 30)
+>>> next(r)
+(8, 40)
+>>> next(r)
+(9, 50)
+>>>
+>>> s=[1,2,3,4,5]
+>>> r=enumerate(s)
+>>> for i in r:
+...     print(i)
+...
+(0, 1)
+(1, 2)
+(2, 3)
+(3, 4)
+(4, 5)
+>>>
+--------------------------------------------------------------------------------------------------------------------------
+Generator:
+
+def gen():
+    yield 5
+    yield 10
+    yield 15
+    yield 20
+g1=gen()
+r=next(g1)
+r1=next(g1)
+r2=next(g1)
+r3=next(g1)
+print(r,r1,r2,r3)
+
+# o/p:
+# 5 10 15 20
+--------------------------------------------------------------------------------------------------------------------------
+def gen():
+    l=[5,10,15,20]
+    for i in l:
+        yield i
+g1=gen()
+for i in g1:
+    print(i)
+
+# o/p:
+# 5
+# 10
+# 15
+# 20
+--------------------------------------------------------------------------------------------------------------------------
+In python programming we can generate random numbers using random function
+
+>>> import random
+>>> s=random.randint(1000,9999)
+>>> s
+4373
+>>> s=random.randint(10000,55555)
+>>> s
+40668
+>>>
+
+--------------------------------------------------------------------------------------------------------------------------
+Write a program to generate 4 random otp's within the range of 1000 to 10000
+
+import random
+
+def otp_generator():
+    i=1
+    while(i<=4):
+        d=random.randint(1000,10000)
+        yield d
+        i+=1
+
+otp_g1=otp_generator()
+for i in otp_g1:
+    print(i)
+    
+# o/p:
+# 4600
+# 6994
+# 3935
+# 3333
+--------------------------------------------------------------------------------------------------------------------------
+write a program to generate factorial of a number from 5 to 10 and return the values to main program
+
+def factorial_gen(val1,val2):
+    for i in range(val1,val2+1):
+        fact=1
+        for j in range(1,i+1):
+            fact*=j
+        yield fact
+fact_gen = factorial_gen(5,10)
+for i in fact_gen:
+    print(i)
+    
+    
+# o/p:
+# 120
+# 720
+# 5040
+# 40320
+# 362880
+# 3628800
+--------------------------------------------------------------------------------------------------------------------------
+Closure:
+    Closure is a special function
+    Closures are developed using nested functions
+    Closure is inner function, which performs operation using the data of outer function even outer function execution is completed
+
+Decorators:
+    Decorator is a special function
+    Decorator function receives input as one function and returns another function as output
+    A function returning another function, usually applied as a function transformation using the @wrapper syntax. 
+    Common examples for Decorators are classmethod() and staticmethod()
+    Decorators are used to add new features to existing function or extending functionality of existing function without modifying it.
+    Decorators can be developed irrespective of functionality
+
+--------------------------------------------------------------------------------------------------------------------------
+Closures:
+
+def power(i):
+    def pow(n):
+        return i**n
+    return pow
+s=power(5)
+r=s(4)
+print(r)
+
+# o/p:
+# 625
+
+s=power(4)
+p=s(3)
+print(p)
+
+# o/p:
+# 64
+--------------------------------------------------------------------------------------------------------------------------
+def outer(i):
+    def inner(n):
+        print(i*n)
+    return inner
+s=outer("*")
+s(11)
+s=outer("$")
+s(11)
+
+
+# o/p:
+# ***********
+# $$$$$$$$$$$
+--------------------------------------------------------------------------------------------------------------------------
+Decorators:
+
+def new_display(d):
+    def smart_display():
+        print("*****************")
+        d()
+        print("*****************")
+    return smart_display
+
+
+@new_display
+def display():
+    print("Rohit Bongade")
+display()
+
+
+
+# o/p:
+# *****************
+# Rohit Bongade
+# *****************
+--------------------------------------------------------------------------------------------------------------------------
+def smart_div(d):
+    def division(a,b):
+        if(b==0):
+            return 0
+        else:
+            return d(a,b)
+    return division
+
+@smart_div
+def div(a,b):
+    return a/b
+a=div(10,2)
+print(a)
+a=div(10,0)
+print(a)
+
+
+# o/p:
+# 5.0
+# 0
+--------------------------------------------------------------------------------------------------------------------------
+def smart_div(d):
+    def division(a,b):
+        if(b==0):
+            return 0
+        elif type(b) == str:
+            return b
+        else:
+            return d(a,b)
+    return division
+
+@smart_div
+def div(a,b):
+    return a/b
+a=div(10,2)
+print(a)
+a=div(10,0)
+print(a)
+a=div(10,'asdf')
+print(a)
+
+
+# o/p:
+# 5.0
+# 0
+# asdf
+--------------------------------------------------------------------------------------------------------------------------
+List Comprehension:
+    the concept of generating elements into list object by writing some logic inn the list is known as list Comprehension
+    by using list Comprehension we reduce number of llines in our code 
+
+Nested List:
+    a list within the another list is called as nested list
+
+--------------------------------------------------------------------------------------------------------------------------
+l=[]
+for i in range(1,11):
+    l.append(i)
+print(l)
+
+l=[i for i in range(1,11)]
+print(l)
+
+l=[i for i in range(1,21) if (i%2==0)]
+print(*l)
+
+# o/p:
+# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# 2 4 6 8 10 12 14 16 18 20
+--------------------------------------------------------------------------------------------------------------------------
+write a program to read 5 values from the user using with and without list Comprehension
+l=[input() for i in range(5)]
+print(l)
+l=[]
+for i in range(5):
+    l.append(input())
+print(l)
+
+--------------------------------------------------------------------------------------------------------------------------
+write a program to squares of odd nummbers from 30 to 50
+l=(i**2 for i in range(30,50) if i%2 != 0)
+print(*l)
+
+# o/p:
+# 961 1089 1225 1369 1521 1681 1849 2025 2209 2401
+--------------------------------------------------------------------------------------------------------------------------
+write a program to create 3*3 an nested list and access the elements present in a list
+
+l=[[1,2,3],[4,5,6],[7,8,9]]
+print(l)
+for i in l:
+    print(i)
+    print("----------")
+    for j in i:
+        print(j)
+        
+# o/p:
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# [1, 2, 3]
+# ----------
+# 1
+# 2
+# 3
+# [4, 5, 6]
+# ----------
+# 4
+# 5
+# 6
+# [7, 8, 9]
+# ----------
+# 7
+# 8
+# 9
+--------------------------------------------------------------------------------------------------------------------------
+write a program to print a nested list and read the values from the user
+
+s=[]
+for i in range(3):
+    r=[]
+    for j in range(3):
+        val = int(input())
+        r.append(val)
+    s.append(r)
+    
+print(s)
+
+# o/p:
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+--------------------------------------------------------------------------------------------------------------------------
+n=int(input())
+l=list(map(int,input().split()))[:n]
+print(l)
+l.sort()
+print("Max:",l[-1])
+c = l.count(l[-1])
+print("2nd Max:",l[-(c+1)])
+print("Min:",l[0])
+c = l.count(l[0])
+print("2nd Min:",l[c])
+
+# o/p:
+# 6
+# 1 1 2 3 6 6
+# [1, 1, 2, 3, 6, 6]
+# Max: 6
+# 2nd Max: 3
+# Min: 1
+# 2nd Min: 2
+--------------------------------------------------------------------------------------------------------------------------
+write a program to create a nested list and read the values from user using the list comprehension
+
+l=[[int(input()) for i in range(3)] for j in range(3)]
+print(l)
+# o/p:
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+--------------------------------------------------------------------------------------------------------------------------
+write a program to read 2*2 nested lsit elements for 2 matrices and perform the addition operation
+
+l1=[[int(input()) for i in range(2)]for j in range(2)]
+l2=[[int(input()) for i in range(2)]for j in range(2)]
+l3=[]
+for i in range(2):
+    r=[]
+    for j in range(2):
+        s=l1[i][j]+l2[i][j]
+        r.append(s)
+    l3.append(r)
+for i in l3:
+    print(*i)
+    
+# o/p:
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 6 8
+# 10 12
+--------------------------------------------------------------------------------------------------------------------------
+write as program to read 3*3 matrix and find row wise and column wise sum 
+li=[[int(input()) for i in range(3)]for j in range(3)]
+s=[]
+for i in li:
+    r=0
+    for j in i:
+        r+=j
+    s.append(r)
+print(s)
+
+s=[0,0,0]
+for i in li:
+    s[0]+=i[0]
+    s[1]+=i[1]
+    s[2]+=i[2] 
+print(s)
+
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# [6, 15, 24]
+# [12, 15, 18]
+--------------------------------------------------------------------------------------------------------------------------
+Exception Handling:
+    In python programming we have 2 types of errors 
+        1. Compile time errors
+        2. Run time errors
+    The error which occurs at compile time those errors are call compile time errors or syntax errors
+    these kind of error should be handle by user
+    The errors which occurs at or during execution of programm those errors are called as run time errors
+    Because of runtimme error the program will terminated abnormally
+    we can handle the Exception with the help of try and except block
+    try block:
+        the statement which produce exception and the other statements which depends on the exception we have to keep inside the try block
+    except block:
+        we have to pass corresponding exception class name as an argument to except block
+        generally userfriendly error message will be given in the except block
+
+
+print("Begin: ")
+a=int(input("Enter value od a:"))
+b=int(input("Enter value od b:"))
+try:
+    c=a/b
+    print("Result: ",c)
+except(ZeroDivisionError):
+    print("Not Divisible by zero")
+print("End")
+
+
+# o/p:
+# Begin: 
+# Enter value od a:10
+# Enter value od b:0
+# Not Divisible by zero
+# End
+--------------------------------------------------------------------------------------------------------------------------
+Different types of exceptions with python programming 
+    1. ZeroDivisionError
+    2. ValueError
+    3. TypeError
+    4. IndexError
+    5. NameError
+    6. AttributeError
+    7. ArrayOutOfBoundException
+    8. RaseError
+    9. KeyError
+
+>>> a=10
+>>> print(a)
+10
+>>> print(e)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'e' is not defined
+>>> s=[1,2,3,4,5]
+>>> s.remove(4)
+>>> s
+[1, 2, 3, 5]
+>>> s.remove(9)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+>>> d={'a':10,'b':20,'c':30}
+>>> d['a']
+10
+>>> d['e']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'e'
+>>> int(3+4j)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'complex'
+>>> int("ten")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: 'ten'
+>>> s=3+4j
+>>> s.real
+3.0
+>>> s.real=3.5
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: readonly attribute
+>>> s=[1,2,3,4,5]
+>>> s[2]
+3
+>>> s[6]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>>
+--------------------------------------------------------------------------------------------------------------------------
