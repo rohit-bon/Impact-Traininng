@@ -1,0 +1,424 @@
+In python programming we have 2 types of variables 
+    1. local variables
+    2. global
+
+Local Variable
+    we can access the local variable within the function only
+    once execution of the function is completed, the local variable will be destroyed 
+Global Variable
+    the variables which are delcared at the top of the program those variables are called as global variable
+    we can access the global variable any where with in the program 
+
+--------------------------------------------------------------------------------------------------------------------------
+Local Variable
+def f1():
+    a = 10
+    b = 20
+    print(a,b)
+    
+
+def f2():
+    c,d = 30,40
+    print(c,d)
+    print(a)
+
+
+f1()
+f2()
+
+
+# o/p:
+# 10 20
+# 30 40
+# Traceback (most recent call last):
+#   File "d:\Impact Traininng\Python\program 8.1.24\variable.py", line 14, in <module>
+#     f2()
+#   File "d:\Impact Traininng\Python\program 8.1.24\variable.py", line 10, in f2
+#     print(a)
+--------------------------------------------------------------------------------------------------------------------------
+Global Variable
+
+a=10
+def m1():
+    print(a)
+m1()
+a=a+10
+print(a)
+m1()
+
+
+# o/p:
+# 10
+# 20
+# 20
+
+
+a=10
+def m1():
+    global a
+    print(a)
+    a+=10
+    print(a)
+
+m1()
+
+# o/p:
+# 10
+# 20
+
+
+
+a = 10
+b = 20
+c = 30
+def m1(a):
+    print(a+b+c)
+m1(50)
+
+# o/p:
+# 100
+--------------------------------------------------------------------------------------------------------------------------
+print("begin")
+try:
+    a=int(input())
+    b=int(input())
+    print(a/b)
+except(ValueError):
+    print("Input should be Integer")
+print("end")
+
+
+# o/p:
+# begin
+# 10
+# abc
+# Input should be Integer
+# end
+--------------------------------------------------------------------------------------------------------------------------
+One try with multiple except block
+    if you want to handle multiple exception with in a single program then we can use try with multiple except block
+--------------------------------------------------------------------------------------------------------------------------
+print("begin")
+try:
+    a=int(input())
+    b=int(input())
+    print(a/b)
+except(ValueError):
+    print("Input should be Integer")
+except(ZeroDivisionError):
+    print("Second Input should not be Zeero")
+print("end")
+
+
+# o/p:
+# begin
+# 10
+# 0
+# Second Input should not be Zeero
+# end
+--------------------------------------------------------------------------------------------------------------------------
+Finally block
+    Whether exception raised or not raised, if it is raised whether it is handeled or not handeled but statements present in the finally block those will be executed by default
+    we have to write very important statements in the finally block such as file closing statements, database closing statements, database connection statements, etc.
+    writing finally block is always optional
+--------------------------------------------------------------------------------------------------------------------------
+print("begin")
+try:
+    a=int(input())
+    b=int(input())
+    print(a/b)
+except(ValueError):
+    print("Input should be Integer")
+except(ZeroDivisionError):
+    print("Second Input should not be Zeero")
+finally:
+    print("I am Finally Block")
+print("end")
+
+# o/p;
+# begin
+# 10
+# abc
+# Input should be Integer
+# I am Finally Block
+# end
+
+# begin
+# 10
+# 0
+# Second Input should not be Zeero
+# I am Finally Block
+# end
+
+# begin
+# 10
+# 2
+# 5.0
+# I am Finally Block
+# end
+--------------------------------------------------------------------------------------------------------------------------
+I predefined exceptions are not satisfying the user requirments then we can raised our own errors using 
+    1. assert statement
+    2. raise statement
+--------------------------------------------------------------------------------------------------------------------------
+Assert statement
+
+def even(n):
+    assert n%2 == 0, "The number should be even"
+    print(n,"is even")
+even(10)
+even(5)
+
+
+# o/p:
+# 10 is even
+# Traceback (most recent call last):
+#   File "d:\Impact Traininng\Python\program 8.1.24\program2.py", line 5, in <module>
+#     even(5)
+#   File "d:\Impact Traininng\Python\program 8.1.24\program2.py", line 2, in even
+#     assert n%2 == 0, "The number should be even"
+# AssertionError: The number should be even
+--------------------------------------------------------------------------------------------------------------------------
+def even(n):
+    assert n%2 == 0, "The number should be even"
+    print(n,"is even")
+try:
+    even(10)
+    even(5)
+except(AssertionError):
+    print("Number should be even")
+    
+# o/p:
+# 10 is even
+# Number should be even
+--------------------------------------------------------------------------------------------------------------------------
+value --> 3-15 
+
+def value(n):
+    assert n<=15 and n>=3, "Value Not in range"
+    print(n,"is the Value")
+val = int(input())
+try:
+    value(val)
+except(AssertionError):
+    print("Value Not in range")
+    
+# o/p:    
+# 2
+# Value Not in range
+
+# 5
+# 5 is the Value
+--------------------------------------------------------------------------------------------------------------------------
+Raise Statement
+    we can raise our own errors using the raise error, if the given condition is not satisfied then this error will be raised
+
+Que: After withdraw operation if the balance is less than 1500rs then we have to raise the error 
+
+balance = 4000
+
+def withdrraw(amt):
+    global balance
+    if balance - amt <= 1500:
+        raise ValueError
+    else:
+        print(balance - amt)
+try:
+    amt = int(input())
+    withdrraw(amt)
+except(ValueError):
+    print("Maintain minimum  balance of 1500.")
+    
+# o/p:
+# 3000
+# Maintain minimum  balance of 1500.
+
+# 1000
+# 3000
+--------------------------------------------------------------------------------------------------------------------------
+Module: 
+    In python programming we have 2 types of modules 
+        1. Normal Import
+        2. From Import 
+    Using the module concept we can access the properties of 1 python file inside another python file.
+    In real time scenario 1 application is collection of programs so 2 program will communicate each other by module concept only (Sending and Receiving the values)
+
+program5
+a=1000
+def m1():
+    print("I'm in M1.")
+
+
+program6
+
+import program5
+import math
+b=2000
+def m2():
+    print("I'm M2.")
+print(b)
+m2()
+print(program5.a)
+program5.m1()
+print(math.pi)
+f=math.factorial(5)
+r=math.sqrt(100)
+print(f,r)
+
+
+
+# o/p:
+# 2000
+# I'm M2.
+# 1000
+# I'm in M1.
+# 3.141592653589793
+# 120 10.0
+--------------------------------------------------------------------------------------------------------------------------
+From import
+
+program7
+a=1000
+def m1():
+    print("I'm in M1.")
+    
+program8
+from program7 import *
+from math import *
+b=2000
+def m2():
+    print("I'm M2.")
+print(b)
+m2()
+print(a)
+m1()
+print(pi)
+f=factorial(5)
+r=sqrt(100)
+print(f,r)
+
+
+
+# o/p:
+# 2000
+# I'm M2.
+# 1000
+# I'm in M1.
+# 3.141592653589793
+# 120 10.0
+
+--------------------------------------------------------------------------------------------------------------------------
+demo1
+
+def add(a,b):
+    return a+b
+def sub(a,b):
+    return a-b
+def mul(a,b):
+    return a*b
+
+
+
+
+program9
+
+from demo1 import *
+a,b=map(int,input().split())
+s1=add(a,b)
+s2=sub(a,b)
+s3=mul(a,b)
+print(s1,s2,s3)
+
+
+# o/p:
+# 10 5
+# 15 5 50
+--------------------------------------------------------------------------------------------------------------------------
+Files:
+    files are used to store the data permenantly
+    we can perform different operation on the file such as
+        we can open the file
+        read the data from the file
+        write the data into the file
+        we can append the data into the file
+        finally we can close the file
+    different modes available in the file
+        1. R mode: indicates the read operation
+        2. W mode: indicates the write mode
+        3. A mode: indicates the Append operation
+        4. R+ mode: indicates the read and write operation at a time
+        5. W+ mode: indicates the write and read operation at a time
+        6. A+ mode: indicates the append and read operation at a time
+
+Reading the data from the file.
+
+file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\movies.txt")
+print(file_location.read())
+file_location.close()
+
+o/p:
+Salar
+Animal
+Openhimer
+Avengers
+Tiger
+Pathan
+Spider Man
+Captain America
+KGF
+--------------------------------------------------------------------------------------------------------------------------
+Writing data into file
+
+file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\webseries.txt","w")
+file_location.write("Money Heist\nFarzi\nLucifer\nScam 1992\nHello mini")
+file_location.close()
+
+o/p:
+
+  file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\webseries.txt","w")
+
+--------------------------------------------------------------------------------------------------------------------------
+Append mode
+    this mode will add the data to exixtinng file and it will not create any new file
+
+file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\webseries.txt","a")
+file_location.write("Wednesday\nScam 2003\nMahabharat\nMismatched\nFamily man")
+file_location.close()
+--------------------------------------------------------------------------------------------------------------------------
+R+ mode 
+    First read the data then perform write operation onn the file
+
+file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\movies.txt","r+")
+print(file_location.read())
+file_location.write("\nJai ho\n3 idiots\nPad man\nShyam Bahadur")
+file_location.close()
+
+#o/p:
+# Salar
+# Animal
+# Openhimer
+# Avengers
+# Tiger
+# Pathan
+# Spider Man
+# Captain America
+# KGF
+--------------------------------------------------------------------------------------------------------------------------
+W+ mode 
+    First we are going to perform write operation in new file then we are going to read the data
+
+file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\Actor.txt","w+")
+file_location.write("Ranbir Kapoor\nSalman\nSharukh\nRanveer\nKartik")
+file_location.seek(0)
+print(file_location.read())
+file_location.close()
+
+
+# o/p:
+#   file_location = open("D:\Impact Traininng\Python\program 8.1.24\Files Program\Actor.txt","w+")
+# Ranbir Kapoor
+# Salman
+# Sharukh
+# Ranveer
+# Kartik
+--------------------------------------------------------------------------------------------------------------------------
