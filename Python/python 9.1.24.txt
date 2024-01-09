@@ -1,0 +1,36 @@
+Recursion
+    Function calling itself is called as Recursion.
+    Using Recursion we can reduce number of lines in our code 
+    Recursion will take more stack memory
+--------------------------------------------------------------------------------------------------------------------------
+Write a program to find factorial of a number using Recursion.
+
+def fact_of_number(number):
+    if number == 0:
+        return 1
+    else:
+        num = number * fact_of_number(number - 1)
+    return num
+
+fact = fact_of_number(5)
+print(fact)
+
+
+# o/p:
+# 120
+--------------------------------------------------------------------------------------------------------------------------
+find the sum of 1-5 numbers using Recursion
+
+def sum_of_numbers(start,end):
+    if start == end:
+        return end
+    else:
+        s = start + sum_of_numbers(start+1,end)
+    return s
+s=sum_of_numbers(1,5)
+print(s)
+
+
+# o/p:
+# 15
+--------------------------------------------------------------------------------------------------------------------------

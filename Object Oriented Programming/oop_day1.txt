@@ -1,0 +1,376 @@
+Object Oriented Programming
+    In procedure oriented programming we are declearing the data as a global and related function as well as un related function can access the data then we have missing security
+    we can achieve thee security with the help of OOP
+    OOP principle are
+        1. Class
+        2. Object
+        3. Encapsulation
+        4. Inheritance
+        5. Polymorphism
+        6. Abstract class and interfaces
+
+Class
+    class is a container which contains data and related operations in a single entity.
+    class is a collection of Data Members and menber function or class is a collection of variables and methods or class is a collection of data and related operations.
+    Data can be represented by variables and operations can be represented by methods
+    within a class we can decclare 3 types of variables 
+        1. static variable
+        2. non static variable
+        3. local variable
+    we can define 3 types of methods within a class
+        1. static method 
+        2. non static method
+        3. class method
+
+Object
+    object is instance of class i.e. by creating a object memory will be alloted for the data members of a class 
+    when class is created memory will be alloted for the static variables and static methods
+    when object is created memory will be alloted for the non-static variables and non-static methods
+
+static variable
+    the variables which are decclared within a class but outside of all methods those variables are called as static variables
+    we can access the static variables within a class by using the class name and outside of a class by using the class name and object name
+    if the data is common to all objects then we can decclare those variables as static variables
+    for static variables memory is alloted when the class is loaded
+
+non static variable
+    the variables which are decclared within a class and within a method those variables are called as non static variables
+    we can access the non static variables within a class by using self keyword and out side of a class by using object name
+    if the data change from object to object we can declare the variable as non static variable
+
+non static method
+    we can access the non static method by using object name 
+    for non static method memory is alloted when object is created
+    if any method has a default argument as a self the corresponding method is called as non static method
+
+static method
+    we can access the static method by using the class name 
+    for accessing static method no need to create any object
+--------------------------------------------------------------------------------------------------------------------------
+program1
+
+class test:
+    a=1000
+    b=2000
+    def display(self):
+        print(test.a,test.b)
+    def update(self):
+        test.a = test.a+10
+        test.b = test.b+20
+
+# for object 1
+t1 = test()
+t1.display()
+t1.update()
+t1.display()
+
+
+# for object 2
+t2 = test()
+t2.display()
+t2.update()
+t2.display()
+
+
+# o/p:
+# 1000 2000
+# 1010 2020
+# 1010 2020
+# 1020 2040
+--------------------------------------------------------------------------------------------------------------------------
+program2
+
+class test():
+    a=1000
+    b=2000
+    def display(self):
+        print(test.a,test.b)
+    def update(self):
+        test.a=test.a+10
+        test.b=test.b+20
+print(test.a,test.b)
+t1 = test()
+t1.display()
+print(t1.a,t1.b)
+
+
+# o/p:
+# 1000 2000
+# 1000 2000
+# 1000 2000
+--------------------------------------------------------------------------------------------------------------------------
+program3
+
+class test():
+    def insert(self):
+        self.a=1000
+        self.b=2000
+    def display(self):
+        print(self.a,self.b)
+    def update(self):
+        self.a=self.a+10
+        self.b=self.b+20
+
+# Object 1
+t1=test()
+t1.insert()
+t1.display()
+t1.update()
+t1.display()
+
+# Object 2
+t2 = test()
+t2.insert()
+t2.display()
+
+
+# o/p:
+# 1000 2000
+# 1010 2020
+# 1000 2000
+--------------------------------------------------------------------------------------------------------------------------
+program4
+
+class test():
+    def insert(self,a,b):
+        self.a=a
+        self.b=b
+    def display(self):
+        print(self.a,self.b)
+    def update(self):
+        self.a=self.a+10
+        self.b=self.b+20
+
+# Object 1
+t1=test()
+t1.insert(10,20)
+t1.display()
+t1.update()
+t1.display()
+
+# Object 2
+t2 = test()
+t2.insert(40,50)
+t2.display()
+
+
+# o/p:
+# 10 20
+# 20 40
+# 40 50
+--------------------------------------------------------------------------------------------------------------------------
+program5
+
+class test():
+    def insert(self,a,b):
+        self.a=a
+        self.b=b
+    def display(self):
+        print(self.a,self.b)
+
+t1 = test()
+t1.insert(10,20)
+print(t1.a,t1.b)
+
+
+# o/p:
+# 10 20
+--------------------------------------------------------------------------------------------------------------------------
+Constructor
+    Constructor is a sspecial type of method 
+    we can define a Constructor in a python Programming ny using __init__
+    Constructor will be invoked automatically during creation of object but method should be called externally
+    we have 2 types of Constructor
+        1. default Constructor
+        2. parametrized Constructor
+
+--------------------------------------------------------------------------------------------------------------------------
+progrma6 
+class test():
+    def __init__(self):
+        self.a = 100
+        self.b = 200
+        
+    def display(self):
+        print(self.a,self.b)
+t1 = test()
+t1.display()
+t2 = test()
+t2.display()
+
+
+
+# o/p:
+# 100 200
+# 100 200
+--------------------------------------------------------------------------------------------------------------------------
+write a program to find area of a circle
+program7
+
+import math
+class area():
+    def __init__(self,r):
+        self.r = r
+    
+    def display(self):
+        area = math.pi * self.r**2 
+        print("Area is:",area)
+
+ar = area(7)
+ar.display()
+
+
+# o/p:
+# Area is: 153.93804002589985
+--------------------------------------------------------------------------------------------------------------------------
+write a program to find area of a rectangle and display the result
+program8
+class area():
+    def __init__(self,height,breadth):
+        self.height = height
+        self.breadth = breadth
+    
+    def display_area(self):
+        area = self.height*self.breadth/2
+        print("Area of triangle:",area)
+        
+triangle = area(12,10)
+triangle.display_area()
+
+
+# o/p:
+# Area of triangle: 60.0
+--------------------------------------------------------------------------------------------------------------------------
+write a program to create a bank application with static, non static and local variables, Constructor and non static method
+conndition
+    1. before withdraw if the bal is < 2000 don't perform the transaction
+    2. befor withdraw check the balance properly(sufficient funds are available or not)
+
+bank_app
+class Customer:
+    bank_name = "Bank of India"
+    def __init__(self,name,accno,add,bal):
+        self.bal = bal
+        self.name = name
+        self.accno = accno
+        self.add = add
+    
+    def display(self):
+        print(Customer.bank_name)
+        print(self.name)
+        print(self.accno)
+        print(self.add)
+    
+    def self_bal(self):
+        print("Balance:",self.bal)
+    
+    def deposit(self,amt):
+        self.bal += amt
+    
+    def withdraw(self, amt):
+        if(amt < self.bal):
+            if self.bal - amt>=2000:
+                self.bal = self.bal - amt
+                print("Balance",self.bal)
+            else:
+                print("Maintain minimum balance.")
+        else:
+            print("Insufficient Balance.")
+
+cust1 = Customer("Rohit",101,"Nagpur",5000)
+cust1.display()
+cust1.self_bal()
+cust1.deposit(5000)
+cust1.withdraw(6000)
+
+
+
+# o/p:
+# Bank of India
+# Rohit
+# 101
+# Nagpur
+# Balance: 5000
+# Balance 4000
+
+--------------------------------------------------------------------------------------------------------------------------
+write a program to develop student class with static, non static and local variables, Constructor and non static method
+
+student_grade
+
+class Student():
+    school_name = "My School"
+    
+    def __init__(self, name,roll,add):
+        self.name = name
+        self.roll = roll
+        self.add = add
+    
+    def read_marks(self):
+        self.sub1 = int(input("Marks of Subject1: "))
+        self.sub2 = int(input("Marks of Subject2: "))
+        self.sub3 = int(input("Marks of Subject3: "))
+    
+    def calculate_grade(self):
+        print(self.school_name)
+        print("Name:",self.name)
+        print("Roll:",self.roll)
+        print("Address:",self.add)
+        print("Subject 1 Marks:",self.sub1)
+        print("Subject 2 Marks:",self.sub2)
+        print("Subject 3 Marks:",self.sub3)
+        if self.sub1 <=35 or self.sub2 <=35 or self.sub3 <=35:
+            print(self.name,"you are failed")
+            grade=0
+        else:
+            grade = (self.sub1+self.sub2+self.sub3)/3
+            print("Your Grade:",grade)
+        if grade >= 75:
+            print("Grade is A")
+        elif grade >=60:
+            print("Grade is B")
+        elif grade >=50:
+            print("Grade is C")
+
+
+name = input("Enter Your Name: ")
+roll = input("Enter your roll no: ")
+add = input("Enter your address: ")
+std = Student(name,roll,add)
+std.read_marks()
+std.calculate_grade()
+
+
+# o/p:
+# Enter Your Name: rohit
+# Enter your roll no: 14
+# Enter your address: nag
+# Marks of Subject1: 20
+# Marks of Subject2: 30
+# Marks of Subject3: 40
+# My School
+# Name: rohit
+# Roll: 14
+# Address: nag
+# Subject 1 Marks: 20
+# Subject 2 Marks: 30
+# Subject 3 Marks: 40
+# rohit you are failed
+
+
+# Enter Your Name: Rohit
+# Enter your roll no: 15
+# Enter your address: Nagpur
+# Marks of Subject1: 70
+# Marks of Subject2: 80
+# Marks of Subject3: 90
+# My School
+# Name: Rohit
+# Roll: 15
+# Address: Nagpur
+# Subject 1 Marks: 70
+# Subject 2 Marks: 80
+# Subject 3 Marks: 90
+# Your Grade: 80.0
+# Grade is A
+--------------------------------------------------------------------------------------------------------------------------
