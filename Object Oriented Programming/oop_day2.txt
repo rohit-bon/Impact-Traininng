@@ -1,0 +1,712 @@
+Write a program to create a book class with book name, author name, number of pages, cost, and library name and create 3 books
+Read th information in main program
+
+book
+class Book():
+    library_name = "Parul Library"
+    
+    def __init__(self,book_name,author_name,number_of_pages,book_cost):
+        self.book_name = book_name
+        self.author_name = author_name
+        self.number_of_pages = number_of_pages
+        self.book_cost = book_cost
+        
+    def display(self):
+        print(Book.library_name)
+        print("Book Name:",self.book_name)
+        print("Author Name:",self.author_name)
+        print("Number of pages:",self.number_of_pages)
+        print("Cost of book:",self.book_cost)
+        
+n = int(input("Enter Number of Books:"))
+i=1
+while(i <= n):
+    book_name = input("Enter Book Name:")
+    author_name = input("Enter Author Name:")
+    number_of_pages = input("Enter NUmber of pages:")
+    book_cost = input("Enter cost:")
+    
+    book_obj = Book(book_name,author_name,number_of_pages,book_cost)
+    book_obj.display()
+    i+=1
+    
+# o/p:
+# Enter Number of Books:2
+# Enter Book Name:PIC
+# Enter Author Name:kanetkar
+# Enter NUmber of pages:300
+# Enter cost:100
+# Parul Library
+# Book Name: PIC
+# Author Name: kanetkar
+# Number of pages: 300
+# Cost of book: 100
+# Enter Book Name:cpp
+# Enter Author Name:kanetkar
+# Enter NUmber of pages:400
+# Enter cost:150
+# Parul Library
+# Book Name: cpp
+# Author Name: kanetkar
+# Number of pages: 400
+# Cost of book: 150
+--------------------------------------------------------------------------------------------------------------------------
+Create Employee class with basic Employee details like Employee name, Employee id, address and salary
+create 3 object
+
+Employee
+class Employee:
+    company_name = "Goldman Sachs"
+    def __init__(self,name,id,address,salary):
+        self.name = name
+        self.id = id
+        self.address = address
+        self.salary = salary
+    
+    def display(self):
+        print(Employee.company_name)
+        print("Employee name:",self.name)
+        print("Id:",self.id)
+        print("Address:",self.address)
+        print("Salary:",self.salary)
+        
+n = int(input("Enter number of Employees:"))
+while(n>0):
+    name = input("Enter Employee Name: ")
+    id = input("Enter id: ")
+    address = input("Enter Address: ")
+    salary = input("Enter Salary: ")
+    
+    employee_obj = Employee(name,id,address,salary)
+    employee_obj.display()
+    print("************************************************")
+    n-=1
+
+
+# o/p:
+# Enter number of Employees:2
+# Enter Employee Name: Rohit
+# Enter id: 101
+# Enter Address: nagpur
+# Enter Salary: 5000000
+# Goldman Sachs
+# Employee name: Rohit
+# Id: 101
+# Address: nagpur
+# Salary: 5000000
+# ************************************************
+# Enter Employee Name: KArtik
+# Enter id: 111
+# Enter Address: nag
+# Enter Salary: 3000000
+# Goldman Sachs
+# Employee name: KArtik
+# Id: 111
+# Address: nag
+# Salary: 3000000
+# ************************************************
+--------------------------------------------------------------------------------------------------------------------------
+Static method: 
+
+program1
+class test:
+    def add(a,b):
+        return a+b
+    def sub(a,b):
+        return a-b
+
+s=test.add(10,5)
+r=test.sub(12,5)
+print(s,r)
+
+# o/p:
+# 15 7
+--------------------------------------------------------------------------------------------------------------------------
+area_of_triangle
+
+class AreaOfTriangle():
+    def find_area(height,base):
+        return height*base/2
+    
+area = AreaOfTriangle.find_area(10,12)
+print(area)
+
+
+# o/p:
+# 60.0
+--------------------------------------------------------------------------------------------------------------------------
+we can use a properties of One class inside another class in 2 ways
+    1. has a relationship
+    2. is a relationship (Inheritance)
+
+Has a relationship
+    the concept of using the properties of one class into another class by using the class name are refrence variable name is known as has a relationship
+
+program2
+class X:
+    a=1000
+    def __init__(self):
+        self.b = 2000
+    def m1(self):
+        print("I am m1.")
+class Y:
+    c=3000
+    def __init__(self):
+        self.d = 4000
+    def m2():
+        print("I am m2")
+    def display(self):
+        print(Y.c)
+        print(self.d)
+        Y.m2()
+        x1 = X()
+        print(x1.a)
+        print(x1.b)
+        x1.m1()
+        
+y1 = Y()
+y1.display()
+
+
+# o/p:
+# 3000
+# 4000
+# I am m2
+# 1000
+# 2000
+# I am m1.
+--------------------------------------------------------------------------------------------------------------------------
+write a program to create two classes one class name is employee and second is test 
+employee details are name,id, and salary
+update the salary in test class then call display method
+create the object of employee class in main program and pass the object any method defined in test class
+
+employee_data_update
+class Employee:
+    company_name = "Sampurv"
+    def emp_data(self, name,id,salary):
+        self.name = name
+        self.id = id
+        self.salary = salary
+
+class Test:
+    def update_salary(self,emp_obj):
+        emp_obj.salary += 5000
+        print(emp_obj.salary)
+
+emp_object = Employee()
+emp_object.emp_data("Rohit",101,10000)
+
+test_obj = Test()
+test_obj.update_salary(emp_object)
+
+# o/p:
+# 15000
+
+class Emp:
+    def __init__(self,name,id,sal):
+        self.name = name
+        self.id = id
+        self.sal = sal
+    
+    def display(self):
+        print(self.name,self.id,self.sal)
+        
+class Tes:
+    def update(e):
+        e.sal = 50000
+        e.display()
+
+e1 = Emp("Rohit",101,40000)
+e1.display()
+Tes.update(e1)
+
+
+# o/p:
+# Rohit 101 40000
+# Rohit 101 50000
+--------------------------------------------------------------------------------------------------------------------------
+write a program to create two classes one class is student class second class is  find result class 
+
+student_result
+
+class Student:
+    def __init__(self,name,roll,sub1,sub2,sub3):
+        self.name = name
+        self.roll = roll
+        self.sub1 = sub1
+        self.sub2 = sub2
+        self.sub3 = sub3
+    
+    def display(self):
+        result = (self.sub1+self.sub2+self.sub3)/3
+        if self.sub1>35 and self.sub2>35 and self.sub3>35:
+            print(self.name, self.roll, result)
+        else:
+            print("You are Failed.")
+
+class FindResult:
+    def showResult(studnet_obj):
+        studnet_obj.display()
+        
+std = Student("Rohit",101,89,93,91)
+FindResult.showResult(std)
+
+
+# o/p:
+# Rohit 101 91.0
+--------------------------------------------------------------------------------------------------------------------------
+Circle
+import math
+class Circle:
+    def __init__(self,radius):
+        self.radius = radius
+    
+    def area(self):
+        ar = math.pi * self.radius**2
+        print(ar)
+    
+    def perimeter(self):
+        pr = math.pi * 2 * self.radius
+        print(pr)
+        
+radius = int(input())
+cir = Circle(radius)
+cir.area()
+cir.perimeter()
+
+
+# o/p:
+# 8
+# 201.06192982974676
+# 50.26548245743669
+--------------------------------------------------------------------------------------------------------------------------
+Inheritance
+    the concept of using the properties of one class into another class directly like as a same class members is known as Inheritance or is a relationship.
+    A class which is extended by another class is known as a super class or a base class 
+    a class which is extending the another class is known as sub class or derived class 
+    we can use super class properties into sub class directly like as same class members 
+
+inheritance 
+
+class X:
+    a=1000
+    def __init__(self):
+        self.b = 2000
+    def m1(self):
+        print("I am m1")
+class Y(X):
+    c=3000
+    def __init__(self):
+        self.d = 4000
+        super().__init__()
+    def m2(self):
+        print("I am m2")
+    def display(self):
+        print(X.a)
+        print(self.b)
+        self.m1()
+        print(Y.c)
+        self.m2()
+        print(self.d)
+
+y1 = Y()
+y1.display()
+
+# o/p:
+# 1000
+# 2000
+# I am m1
+# 3000
+# I am m2
+# 4000
+
+print(y1.a,y1.b,y1.c,y1.d)
+y1.m1()
+y1.m2()
+
+
+# o/p:
+# 1000 2000 3000 4000
+# I am m1
+# I am m2
+--------------------------------------------------------------------------------------------------------------------------
+Object class
+    Object class is a predefined class which is defined in built-in models 
+    object is a super class for every class in python 
+    object class properties we can access in every class directly and we can also access through evry class refrence variable
+--------------------------------------------------------------------------------------------------------------------------
+object 
+class x:
+    def m1(self):
+        print("I am m1")
+    
+x1 = x()
+p = x1.__str__()
+print(p)
+x1.m1()
+
+# o/p:
+# <__main__.x object at 0x000002577A6C5730>
+# I am m1
+--------------------------------------------------------------------------------------------------------------------------
+Inheritance is classified into 6 types
+    1. Single Inheritance
+    2. Multilevel Inheritance
+    3. Hierarchical Inheritance
+    4. Multiple Inheritance
+    5. Cyclic Inheritance
+    6. Hybrid Inheritance
+
+Single Inheritance
+    the concept of inhereting properties from only one class into another class is known as single inheretance
+
+Multilevel Inheritance
+    concept of inhereting properties from Multiple classes into single class with the concept of one after another is known as Multilevel Inheritance
+
+Hierarchical Inheritance
+    the concept of inhereting properties one class into Multiple classes seperately is known as Hierarchical Inheritance
+
+Multiple Inheritance
+    concept of inhereting properties from Multiple classes into single class at a time is known as Multiple Inheritance
+
+Cyclic Inheritance
+    the concept of inhereting properties from sub class to super class is known as Cyclic Inheritance
+    pyhton doesn't support Cyclic Inheritance
+
+Hybrid Inheritance
+    the combination of single, Multilevel, Hierarchical and Multiple Inheritance is known as Hybrid Inheritance
+--------------------------------------------------------------------------------------------------------------------------
+Single Inheritance
+🏛️------->🏛️
+
+single_inheritance
+
+class x:
+    def m1(self):
+        print("I am m1")
+class y(x):
+    def m2(self):
+        print("I am m2")
+print(x.__bases__)
+print(y.__bases__)
+y1 = y()
+y1.m1()
+y1.m2()
+p=y1.__hash__()
+print(p)
+
+
+# o/p:
+# (<class 'object'>,)
+# (<class '__main__.x'>,)
+# I am m1
+# I am m2
+# 128973854340
+--------------------------------------------------------------------------------------------------------------------------
+Multilevel Inheritance
+🏛️------>🏛️------->🏛️------->🏛️
+
+multilevel_inheritance
+
+class person:
+    def insert(self):
+        self.name = "Rohit"
+        self.add = "NGP"
+class employee(person):
+    def insert1(self):
+        self.id = 101
+class salaried_employee(employee):
+    def __init__(self):
+        self.sal = 50000
+    def display(self):
+        self.insert()
+        self.insert1()
+        print(self.name, self.id, self.add, self.sal)
+        
+emp1 = salaried_employee()
+emp1.display()
+
+
+# o/p:
+# Rohit 101 NGP 50000
+--------------------------------------------------------------------------------------------------------------------------
+Hierarchical Inheritance
+🏛️--------->🏛️
+|---------->🏛️
+
+hierarchical_inheritance
+
+class Student:
+    def insert(self):
+        self.name = input("Enter Name: ")
+        self.id = int(input("Enter ID: "))
+        self.add = input("Enter Address: ")
+        
+class DS(Student):
+    def __init__(self):
+        self.s1 = input("Enter Subject1: ")
+        self.s2 = input("Enter Subject2: ")
+    def display(self):
+        self.insert()
+        print(self.name,self.id,self.add,self.s1,self.s2)
+        
+class ML(Student):
+    def __init__(self):
+        self.s1 = input("Enter Subject1: ")
+        self.s2 = input("Enter Subject2: ")
+    def display(self):
+        self.insert()
+        print(self.name,self.id,self.add,self.s1,self.s2)
+        
+d1 = DS()
+d1.display()
+
+m1 = ML()
+m1.display()
+
+
+# o//p:
+# Enter Subject1: ds1
+# Enter Subject2: ds2
+# Enter Name: Rohit
+# Enter ID: 11
+# Enter Address: Nagpur
+# Rohit 11 Nagpur ds1 ds2
+# Enter Subject1: ml1
+# Enter Subject2: ml2
+# Enter Name: Rohit
+# Enter ID: 11
+# Enter Address: Nagpur
+# Rohit 11 Nagpur ml1 ml2
+--------------------------------------------------------------------------------------------------------------------------
+Multiple Inheritance
+🏛️-------------->🏛️
+🏛️---------------^
+
+multiple_inheritance
+class x:
+    def m1(self):
+        print("I am m1 of X")
+class y:
+    def m1(self):
+        print("I am m1 of Y")
+class z(x,y):
+    def m2(self):
+        print("I am m2 of z")
+
+z1 = z()
+z1.m1()
+
+# o/p:
+# I am m1 of X
+--------------------------------------------------------------------------------------------------------------------------
+Hybrid Inheritance
+
+hybrid_inheritance
+
+class V:
+    def v(self):
+        print("In v of V")
+class W(V):
+    def m(self):
+        self.v()
+        print("In m of W")
+class X(W):
+    def m1(self):
+        self.m()
+        print("In m1 of X")
+class Y(V):
+    def m1(self):
+        self.v()
+        print("In m2 of Y")
+class Z(X,Y):
+    def m3(self):
+        self.m1()
+        print("In m3 Of Z")
+z1=Z()
+z1.m3()
+
+# o/p:
+# In v of V
+# In m of W
+# In m1 of X
+# In m3 Of Z
+--------------------------------------------------------------------------------------------------------------------------
+program3
+
+class Parent:
+    def add(self,a,b):
+        print(a+b)
+
+class Child(Parent):
+    def sub(self,a,b):
+        print(a-b)
+        
+a=int(input())
+b=int(input())
+ch = Child()
+ch.add(a,b)
+ch.sub(a,b)
+
+
+# o/p:
+# 20
+# 10
+# 30
+# 10
+--------------------------------------------------------------------------------------------------------------------------
+Polymorphism
+    defining one thing in number of forms is called as Polymorphism
+    Polymorphism is divided into 2 types 
+        1. Method Overloading
+        2. Method Overriding
+    
+Method Overloading
+    the concept of defining multiple methods with same name, with same number of parameters or diifferent number of parameters within a class is known as Method Overloading
+    method Overloading is partially supported python
+
+
+method_overloading
+
+class x:
+    def m1(self):
+        print("No Parameter m1")
+    def m1(self,a):
+        print("1 Parameter m1")
+    def m1(self,a,b):
+        print("2 Parameter m1")
+
+x1 = x()
+x1.m1(10,20)
+
+# o/p:
+# 2 Parameter m1
+
+x1.m1(10)
+
+# o/p:
+#     x1.m1(10)
+# TypeError: x.m1() missing 1 required positional argument: 'b'
+--------------------------------------------------------------------------------------------------------------------------
+Arbitary Parameter 
+    if any variable is preeceed by * the the corredponding parameter is called as Arbitary Parameter
+    python supports 2 types of Arbitary Parameter
+        1. single * Arbitary Parameter
+        2. multi * Arbitary Parameter
+    single * Arbitary Parameter type is consider as tuple
+    multi * Arbitary Parameter type is consider as Dictionary
+
+arbitary_parameter
+
+def d(*a):
+    print(a)
+    print(type(a))
+    print(sum(a))
+d(10,20,30)
+d(1,2,3,4,5)
+
+# o/p:
+# (10, 20, 30)
+# <class 'tuple'>
+# 60
+# (1, 2, 3, 4, 5)
+# <class 'tuple'>
+# 15
+
+def d(b,*a):
+    print(a)
+    print(b)
+    print(sum(a)+b)
+d(10,20,30)
+
+# o/p:
+# (20, 30)
+# 10
+# 60
+--------------------------------------------------------------------------------------------------------------------------
+
+class test:
+    def op(self,d,*a):
+        if(d=="int"):
+            s1 = 0
+        else:
+            s1 = ''
+        for i in a:
+            s1 = s1 + i 
+        print(s1)
+t1 = test()
+t1.op("int",10,20,30)
+t1.op("str","krishna","rama","Hanuman")
+
+# o/p:
+# 60
+# krishnaramaHanuman
+--------------------------------------------------------------------------------------------------------------------------
+Method Overriding
+    the concept of defining multiple methods with same name with same number of parameters, one in super class and another one in sub class is known as Method Overriding
+    when we override super class method within the sub class then by default sub class method only executed if sub class method is created
+
+method_overriding
+
+class x:
+    def m1(self):
+        print("I am m1 of X")
+    def m2(self):
+        print("I am m2 of X")
+class y(x):
+    def m2(self):
+        print("I am m2 of Y")
+    def m3(self):
+        print("I am m3 of Y")
+class z(x):
+    def m1(self):
+        print("I am m1 of Z")
+    def m4(self):
+        print("I am m4 of Z")
+        
+y1 = y()
+y1.m2()
+y1.m1()
+y1.m3()
+z1=z()
+z1.m1()
+z1.m2()
+z1.m4()
+
+
+# o/p:
+# I am m2 of Y
+# I am m1 of X
+# I am m3 of Y
+# I am m1 of Z
+# I am m2 of X
+# I am m4 of Z
+--------------------------------------------------------------------------------------------------------------------------
+program4
+
+class x:
+    def m1(self):
+        print("M1 of X")
+    def __str__(self):
+        return "python"
+    
+x1=x()
+p=x1.__str__()
+print(p)
+
+# o/p:
+# python
+
+class x:
+    def __init__(self,name):
+        self.name = name
+    def __str__(self):
+        return self.name
+    
+x1=x("Rohit")
+print(x1)
+
+# o/p:
+# Rohit
+--------------------------------------------------------------------------------------------------------------------------

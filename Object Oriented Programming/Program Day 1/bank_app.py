@@ -21,12 +21,13 @@ class Customer:
     
     def deposit(self,amt):
         self.bal += amt
+        print("Balance after Deposit:",self.bal)
     
     def withdraw(self, amt):
         if(amt < self.bal):
             if self.bal - amt>=2000:
                 self.bal = self.bal - amt
-                print("Balance",self.bal)
+                print("Balance after Withdrawl:",self.bal)
             else:
                 print("Maintain minimum balance.")
         else:
@@ -46,4 +47,5 @@ cust1.withdraw(6000)
 # 101
 # Nagpur
 # Balance: 5000
-# Balance 4000
+# Balance after Deposit: 10000
+# Balance after Withdrawl: 4000
