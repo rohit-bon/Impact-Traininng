@@ -1,0 +1,198 @@
+write a program to create employee class with name, id, salary and initialize the properties through constructor and return the values to main program without using static and non static variables.
+
+program1
+
+# write a program to create employee class with name, id, salary and initialize the properties through constructor and return the values to main program without using static and non static methods.
+class Employee:
+    def __init__(self,name,id,salary):
+        self.name = name
+        self.id = id
+        self.salary = salary
+    def __str__(self):
+        return self.name+ ' '+ str(self.id)+ ' '+ str(self.salary)
+emp = Employee("Rohit", 101, 5000)
+print(emp)
+
+
+# o/p:
+# Rohit 101 5000
+--------------------------------------------------------------------------------------------------------------------------
+Defining multiple constructor with same name with same number of parameters and one constructor will be defined in super class and another constructor is defined in subcalss is known as constructor overriding.
+whenever we override super class constructor within a sub class then by default sub class constructor will be executed, if subcalss constructor is created
+
+constructor_overriding
+
+class x:
+    def __init__(self):
+        print("Constructor of X")
+class y(x):
+    def __init__(self):
+        print("Constructor of Y")
+y_obj = y()
+
+# o/p:
+# Constructor of Y
+
+
+class x:
+    def __init__(self):
+        print("Constructor of X")
+class y(x):
+    def __init__(self):
+        print("Constructor of Y")
+        super().__init__()
+y_obj = y()
+
+# o/p:
+# Constructor of Y
+# Constructor of X
+
+
+
+class x:
+    def __init__(self,a):
+        self.a = a
+        print(self.a*self.a)
+class y(x):
+    def __init__(self,a,b):
+        self.a = a
+        self.b = b
+        super().__init__(self.a)
+        print(self.a+self.b)
+y_obj = y(20,10)
+
+# o/p:
+# 400
+# 30
+
+
+class x:
+    def __init__(self,a,b):
+        self.a = a
+        self.b = b
+        print(self.a, self.b)
+class y(x):
+    def __init__(self, a):
+        self.a = a
+        print(self.a * self.a)
+        super().__init__(10, 5)
+y_obj = y(20)
+
+# o/p:
+# 400
+# 10 5
+--------------------------------------------------------------------------------------------------------------------------
+Magic methods in python 
+__add__
+__mul__
+__ge__
+__truediv__
+__floordiv__
+__mod__
+__divmod__
+
+magic_methods.py
+
+class bx:
+    def __init__(self,p):
+        self.p = p
+    def __add__(self,other):
+        d = self.p+other.p
+        return d
+class by:
+    def __init__(self,p):
+        self.p = p
+b1 = bx(200)
+b2 = by(100)
+print(b1+b2)
+
+# o/p:
+# 300
+
+
+class bx:
+    def __init__(self,p):
+        self.p = p
+    def __add__(self,other):
+        d = self.p+other.p
+        return d
+class by:
+    def __init__(self,p):
+        self.p = p
+b1 = bx(200)
+b2 = by(100)
+c = b1.__add__(b2)
+print(c)
+
+# o/p:
+# 300
+
+--------------------------------------------------------------------------------------------------------------------------
+employee --> name,sal 
+attendance --> name,days
+o/P: sal*days 
+
+emp_attendance
+
+class Employee:
+    def __init__(self,name,sal):
+        self.name = name
+        self.sal = sal
+    def __mul__(self,other):
+        return self.sal * other.days
+class Attendance:
+    def __init__(self,days):
+        self.days = days
+emp_obj = Employee("Rohit", 1000)
+attend = Attendance(29)
+print(emp_obj * attend)
+
+# o/p:
+# 29000
+--------------------------------------------------------------------------------------------------------------------------
+Interface and Abstract Classes
+
+Abstract Class
+    Abstract Class is a collection of abstract method and non abstract method
+    Abstract Method 
+        the method which does not contain any implementation part that corresponding method is called as abstract method
+    Non Abstract Method
+        thr method which contain implementation part the corresponding method is called as non abstract method
+
+Interface
+    Interface is a collection of abstract methods 
+    if there is no any implementation part for method and constructor we can replace with pass, empty method or constructor is not supported
+
+abstract
+
+from abc import *
+
+class RBI(ABC):
+    def min_bal(self):
+        pass
+    def RI(self):
+        print("RI is 6.5%")
+class SBI(RBI):
+    def min_bal(self):
+        print("Min bal is 2k.")
+class HDFC(RBI):
+    def min_bal(self):
+        print("Min bal is 0k.")
+class BOI(RBI):
+    def min_bal(self):
+        print("Min bal is 1k")
+        
+s1 = SBI()
+s1.min_bal()
+s1.RI()
+
+s2 = HDFC()
+s2.min_bal()
+s2.RI()
+
+# o/p:
+# Min bal is 2k.
+# RI is 6.5%
+# Min bal is 0k.
+# RI is 6.5%
+--------------------------------------------------------------------------------------------------------------------------
