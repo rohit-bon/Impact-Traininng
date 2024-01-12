@@ -1,0 +1,328 @@
+program1
+
+from abc import *
+class RBI(ABC):
+    def min_balance(self):
+        pass
+    def RI(self):
+        print("RI is 6.5%")
+
+class SBI(RBI):
+    def min_balance(self):
+        print("Min Balance is 2k")
+
+class HDFC(RBI):
+    def min_balance(self):
+        print("Min Balance is 0k")
+
+class ICICI(RBI):
+    def min_balance(self):
+        print("Min Balance is 1k")
+        
+bank = input("Enter class / Bank name: ")
+obj = globals() [bank]
+obj1 = obj()
+obj1.min_balance()
+obj1.RI()
+
+
+# o/p:
+# Enter class / Bank name: SBI
+# Min Balance is 2k
+# RI is 6.5%
+
+
+# Enter class / Bank name: HDFC
+# Min Balance is 0k
+# RI is 6.5%
+--------------------------------------------------------------------------------------------------------------------------
+program2
+
+from abc import *
+
+class Car(ABC):
+    def __init__(self,reg_no):
+        self.reg_no = reg_no
+    def open_tank(self):
+        print("Fill the tank with Reg. no: ", self.reg_no)
+    def steering(self):
+        pass
+    def break_system(self):
+        pass
+class Audi(Car):
+    def steering(self):
+        print("Power Steering.")
+    def break_system(self):
+        print("Hydraulic Break.")
+class BMW(Car):
+    def steering(self):
+        print("BMW Power Steering.")
+    def break_system(self):
+        print("Air Break.")
+
+audi_obj = Audi("MH31AUDI40")
+audi_obj.open_tank()
+audi_obj.steering()
+audi_obj.break_system()
+
+bmw_obj = BMW("MH31BMW40")
+bmw_obj.open_tank()
+bmw_obj.steering()
+bmw_obj.break_system()
+
+
+# o/p:
+# Fill the tank with Reg. no:  MH31AUDI40
+# Power Steering.
+# Hydraulic Break.
+# Fill the tank with Reg. no:  MH31BMW40
+# BMW Power Steering.
+# Air Break.
+--------------------------------------------------------------------------------------------------------------------------
+Interfaces
+    Interface is a collection of abstract methods 
+    Interface is implemented by Inheriting a properties of abc module
+
+program3
+from abc import *
+
+class Test(ABC):
+    def operation(self):
+        pass
+
+class Sub1(Test):
+    def operation(self,a):
+        self.a = a
+        print(self.a * self.a)
+
+class Sub2(Test):
+    def operation(self,a):
+        self.a = a
+        print(self.a**3)
+
+class Sub3(Test):
+    def operation(self,a,b):
+        self.a = a
+        self.b = b 
+        print(self.a+self.b)
+
+sub1_obj = Sub1()
+sub1_obj.operation(10)
+
+sub2_obj = Sub2()
+sub2_obj.operation(5)
+
+sub3_obj = Sub3()
+sub3_obj.operation(3,2)
+
+
+# o/p:
+# 100
+# 125
+# 5
+--------------------------------------------------------------------------------------------------------------------------
+program4.py
+
+from abc import *
+
+
+class Vehicle(ABC):
+    def number_of_tyres(self):
+        pass
+
+
+class Bus(Vehicle):
+    def number_of_tyres(self,tyres):
+        print("Number of tyres: ",tyres)
+        
+        
+class Truck(Vehicle):
+    def number_of_tyres(self,tyres):
+        print("Number of tyres: ",tyres)
+        
+class Auto(Vehicle):
+    def number_of_tyres(self,tyres):
+        print("Number of tyres: ",tyres)
+    
+
+class Cycle(Vehicle):
+    def number_of_tyres(self,tyres):
+        print("Number of tyres: ",tyres)
+        
+        
+class Bike(Vehicle):
+    def number_of_tyres(self,tyres):
+        print("Number of tyres: ",tyres)
+        
+        
+class JCB(Vehicle):
+    def number_of_tyres(self,tyres):
+        print("Number of tyres: ",tyres)
+        
+
+bus_obj = Bus()
+bus_obj.number_of_tyres(4)
+
+truck_obj =Truck()
+truck_obj.number_of_tyres(24)
+
+auto_obj = Auto()
+auto_obj.number_of_tyres(3)
+
+cycle_obj =Cycle()
+cycle_obj.number_of_tyres(2)
+
+bike_obj = Bike()
+bike_obj.number_of_tyres(2)
+
+jcb_obj = JCB()
+jcb_obj.number_of_tyres(2)
+
+
+# o/p:
+# Number of tyres:  4
+# Number of tyres:  24
+# Number of tyres:  3
+# Number of tyres:  2
+# Number of tyres:  2
+# Number of tyres:  4
+--------------------------------------------------------------------------------------------------------------------------
+Access Specifier or Modifier
+    In Python we have 3 Access Modifier
+        1. Private
+        2. Public
+        3. Protected
+
+    Public
+        If variable or method is public we can access anywhere within the program
+    Protected
+        If variable or method is protected we can access within the next inherited class (we don't access in main program).
+    Private
+        If variable or method is private we can access within the same class.
+
+program5
+# Public
+class Employee:
+    def __init__(self,name,id1,salary,dept):
+        self.name = name
+        self.id1 = id1
+        self.salary = salary
+        self.dept = dept
+    
+    def display(self):
+        print(emp_obj.name)
+        print(emp_obj.id1)
+        print(emp_obj.salary)
+        print(emp_obj.dept)
+
+emp_obj = Employee("Rohit",123,100000,"IT")
+emp_obj.display()
+print(emp_obj.name)
+print(emp_obj.id1)
+print(emp_obj.salary)
+print(emp_obj.dept)
+
+# o/p:
+# Rohit
+# 123
+# 100000
+# IT
+# Rohit
+# 123
+# 100000
+# IT
+
+Protected
+    Protected variable can be declared using '_'(underscore)
+
+# Protected
+class Employee:
+    def __init__(self,name,id1,salary,dept):
+        self._name= name
+        self._id1 = id1
+        self._salary = salary
+        self._dept = dept
+    
+    def _display(self):
+        print("Name: ",self._name)
+        print("ID: ",self._id1)
+
+
+class Geeks(Employee):
+    def __init__(self, name, id1, salary, dept):
+        super().__init__(name, id1, salary, dept)
+    def display(self):
+        self._display()
+        print("Salary",self._salary)
+        print("Department",self._dept)
+        
+geeks_obj = Geeks("Rohit",123,100000,"CSE")
+geeks_obj.display()
+
+
+# o/p:
+# Name:  Rohit
+# ID:  123
+# Salary 100000
+# Department CSE
+
+Private variable
+    In python programming we can declare private variable and private methods using '__'(double underscore)
+
+#Private
+
+class Employee:
+    __cname = "Parul Univeristy"
+    
+    def __init__(self,name,id1,salary,dept):
+        self.__name = name
+        self.__id1 = id1
+        self.__salary = salary
+        self.__dept = dept
+    
+    def __display(self):
+        print("College Name: ",Employee.__cname)
+        print("Name: ",self.__name)
+        print("ID: ",self.__id1)
+        print("Department: ",self.__dept)
+        print("Salary: ",self.__salary)
+    
+    def display(self):
+        self.__display()
+
+emp_obj = Employee("Rohit",123,100000,"CSE")
+emp_obj.display()
+
+# o/p:
+# College Name:  Parul Univeristy
+# Name:  Rohit
+# ID:  123
+# Department:  CSE
+# Salary:  100000
+--------------------------------------------------------------------------------------------------------------------------
+Write a program to produce a number from 5 to 1 and append to list using recursion
+
+program6
+
+li = []
+li2 = []
+def num(n):
+    number = list()
+    if n == 0:
+        return 0
+    else:
+        li.append(n)
+        num(n-1)
+        li2.append(n)
+n = int(input())
+num(n)
+print(li)
+print(li2)
+
+
+# o/p:
+# 5
+# [5, 4, 3, 2, 1]
+# [1, 2, 3, 4, 5]
+
+--------------------------------------------------------------------------------------------------------------------------
