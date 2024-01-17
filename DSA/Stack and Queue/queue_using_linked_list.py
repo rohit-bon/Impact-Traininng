@@ -8,7 +8,7 @@ class Node:
 class Queue:
     def __init__(self):
         self.head = None
-        self.rear = 0
+        self.rear = 1
         self.size = 5
     
     def isEmpty(self):
@@ -60,6 +60,7 @@ class Queue:
                 dummy_node.next = None
             else:
                 self.head = None
+            print(temp.data,"is pop")
             
                 
 Queue_object = Queue()

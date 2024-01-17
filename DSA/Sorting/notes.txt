@@ -1,0 +1,94 @@
+Sorting Algorithms in Python:
+    python supports different sorting algorithms (7)
+        1. Bubble Sort
+        2. Selection Sort
+        3. Insertion Sort
+        4. Merge Sort
+        5. Quick Sort
+        6. Radix Sort (Frequency Sort)
+        7. Heap Sort
+    
+    Bubble Sort:
+        Bubble Sort is worst sorting algorithm as compare to all other algorithm 
+        In the bubble sort we have to commpare the adjecent element if the element are not sorted then we have to sort
+        Bubble Sort will arrange the elements in ascending order or descending order
+        for ascending order we have to use > symbol, for descending we have to use < symbol for comparision
+
+    Selection Sort:
+        In the Selection Sort the first element will be considered as minimum element in the list then remaining all elements will be compared with first element if any element is less than the minimum element first then extend the index position of minimum index, after all comparisions the minimum value will be move to first location
+
+    Merge Sort:
+        Merge Sort works on the principle of Divide and Conquer technique 
+        first we have to divide the lis into 2 equal parts i.e. len(l)//2, this division is possible until the len = 1 
+        for dividing the elements into equal parts we are using recursionn technique 
+        during comparision we are going to compare left side value with the right side value if left side value is less than right side value then left side value will come first if condition is false then right side value will comme first.
+    
+
+
+
+
+
+
+Write a program for implementation Bubble Sort with function approach
+
+Bubble sort:
+
+def bubble_sort(my_list):
+    for i in range(len(my_list)-1):
+        for j in range(len(my_list)-1):
+            if my_list[j] > my_list[j+1]:
+                my_list[j],my_list[j+1]=my_list[j+1],my_list[j]
+    return my_list
+
+my_list = list(map(int,input().split()))
+my_list = bubble_sort(my_list)
+print(*my_list)
+
+
+Selection Sort:
+
+def selection_sort(my_list):
+    for i in range(len(my_list)):
+        min_index = i
+        for j in range(i+1, len(my_list)):
+            if my_list[min_index]>my_list[j]:
+                min_index = j
+        my_list[min_index],my_list[i] = my_list[i],my_list[min_index]
+        # print(my_list)
+    return my_list
+
+my_list = list(map(int,input().split()))
+my_list = selection_sort(my_list)
+print(*my_list)
+
+
+
+Merge Sort:
+
+
+def merge(left,right):
+    my_list = []
+    i=0
+    j=0
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            my_list.append(left[i])
+            i+=1
+        else:
+            my_list.append(right[j])
+            j+=1
+    my_list = my_list + left[i:] + right[j:]
+    return my_list
+
+def merge_sort(my_list):
+    if len(my_list) == 1:
+        return my_list
+    else:
+        mid = len(my_list)//2
+        left = merge_sort(my_list[:mid])
+        right = merge_sort(my_list[mid:])
+    return merge(left,right)
+
+my_list = list(map(int, input().split()))
+my_list = merge_sort(my_list)
+print(*my_list)

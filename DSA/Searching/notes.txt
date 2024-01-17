@@ -1,0 +1,61 @@
+Searching Techniques in python:
+    python supports 2 types of searching Techniques:
+        1. Linear Search 
+        2. Binary Search 
+    Linear Search
+        In the linear search we are going to compare key element with the each and every element present in the list 
+        If the element found then it will return the index position of the corresponding element
+        If the element is not available then it will return -1 i.e. -1 is indicated as element not found
+        In the linear search we are going to compare each and every element with the key so  this algorithm will take more timme and time complexity is also more
+    Binary Search
+        In the  Binary search first 
+            step1: we have to sort the element 
+            step2: calculate low and high value i.e. low=0 and high=len -1
+            step3: calculate the mid index position i.e. low+high/2
+            step4: based on the mid position find out middle value in the list then compare midlle value with the key value if middle value is less than key value then increment the low, if middle value is greater than the key value then decrement the high with 1, if two conditions are not satisfied that will be indicated as middle value and key value both are equal, then return the index position.
+            step5: if the element is not available then this algorithm will return -1 
+        
+
+
+
+Linear Search:
+
+def linear_search(my_list,key):
+    for i in range (len(my_list)):
+        if my_list[i] == key:
+            return i
+    return -1
+        
+my_list = list(map(int, input().split()))
+key = int(input())
+found = linear_search(my_list, key)
+if found == -1:
+    print("Element not found.")
+else:
+    print("Element",key,"fount at",found+1,"Position and Index is",found)
+
+
+Binary Search:
+
+def binary_search(my_list, key):
+    my_list.sort()
+    low = 0
+    high = len(my_list) - 1
+    while low<=high:
+        mid = (low+high)//2
+        if my_list[mid] == key:
+            return True
+        else:
+            if key > my_list[mid]:
+                low = mid + 1
+            else:
+                high = mid - 1
+    return False
+            
+my_list = list(map(int, input().split()))
+key = int(input())
+found = binary_search(my_list, key)
+if found:
+    print("Element",key,"is found in list.")
+else:
+    print("Element not found.")
