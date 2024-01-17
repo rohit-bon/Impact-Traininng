@@ -1,0 +1,249 @@
+Stacks:
+    stacks works on the principle of LIFO i.e. last in first out means last inserted element removed first
+    we can perform various operations on the stack 
+        1. PUSH
+        2. POP
+        3. DISPLAY
+    PUSH
+        using push operation we can insert the element into the stack 
+    POP
+        using the pop operation we can retrive or we can delete the element from the stack
+    stack can be implemented in 3 ways
+        1. Stack Implementation using list
+        2. Stack Implementation using linked list
+        3. Statc Implementation usinng Dequeue class
+    
+Queue:
+    Queue works on the principle of FIFO i.e. first in first out
+    we can perform various operation on the Queue
+        1. Enqueue (it will insert the element into the queue)
+        2. Dequeue (it will  dlete  the element form the queue)
+    Queue can be implemented in 3 ways
+        1. Using List
+        2. Usinng Dequeue class
+        3. Usinng Linked List
+
+Implementation of Stack using List
+
+stack = []
+size = int(input("Enter the  size of stack: "))
+top = -1
+while True:
+    print("MENU")
+    print("1. Push \n2. Pop \n3. Display \n4. Exit")
+    option = int(input("Enter your Selection: "))
+    if option == 1:
+        if top < size -1:
+            top +=1
+            element = int(input("Enter Element: "))
+            stack.append(element)
+        else:
+            print("Stack is Full")
+    elif option == 2:
+        if top == -1:
+            print("Stack is empty")
+        else:
+            print("Poped element is",stack.pop())
+            top = top-1
+    elif option == 3:
+        print(stack)
+    elif option == 4:
+        break
+    else:
+        print("Wrong Option")
+
+
+Implementation of stack using linked list
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Stack:
+    def __init__(self):
+        self.head = None
+    
+    def isEmpty(self):
+        if self.head == None:
+            return True
+        else:
+            return False
+        
+    def push(self,data):
+        if self.head == None:
+            self.head = Node(data)
+        else:
+            temp = self.head
+            new = Node(data)
+            self.head = new
+            new.next = temp
+    
+    def display(self):
+        temp = self.head
+        if self.isEmpty():
+            print("Stack is Empty.")
+        else:
+            while temp:
+                print(temp.data, end=" ")
+                temp = temp.next
+            print()
+    
+    def pop(self):
+        temp = self.head
+        dummy_node = None
+        if self.isEmpty():
+            print("Stack is Empty")
+        else:
+            dummy_node = temp.next
+            self.head = dummy_node
+            
+                
+stack_object = Stack()
+stack_object.display()
+stack_object.push(10)
+stack_object.push(20)
+stack_object.push(30)
+stack_object.push(40)
+stack_object.display()
+stack_object.pop()
+stack_object.display()
+
+
+
+Implementation of Stack uisng Dequeue
+
+from collections import deque
+
+stack = deque()
+
+stack.append("Rohit")
+stack.append("4+8r")
+stack.append(4.5)
+stack.append(2003)
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+stack.pop()
+print(stack)
+
+
+
+Implementation of Queue using deque
+
+from collections import deque
+queue = deque()
+queue.append("Rohit")
+queue.append(4+8j)
+queue.append(5.6)
+queue.append(2003)
+print(queue)
+queue.popleft()
+print(queue)
+queue.popleft()
+queue.popleft()
+print(queue)
+queue.popleft()
+print(queue)
+
+
+Implementation of Queue Usinng List
+
+queue = []
+size = int(input("Enter Size:"))
+top = -1
+while True:
+    print("MENU")
+    print("1. Push \n2. Pop \n3. Display \n4. Exit")
+    option = int(input("Enter your Selection: "))
+    if option == 1:
+        if top < size -1:
+            top +=1
+            element = int(input("Enter Element: "))
+            queue.append(element)
+        else:
+            print("queue is Full")
+    elif option == 2:
+        if top == -1:
+            print("queue is empty")
+        else:
+            print("Poped element is",queue.pop(0))
+            top = top-1
+    elif option == 3:
+        print(queue)
+    elif option == 4:
+        break
+    else:
+        print("Wrong Option")
+
+
+
+# Implementation of Queue using linked list
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Queue:
+    def __init__(self):
+        self.head = None
+    
+    def isEmpty(self):
+        if self.head == None:
+            return True
+        else:
+            return False
+        
+    def push(self,data):
+        if self.head == None:
+            self.head = Node(data)
+        else:
+            temp = self.head
+            new = Node(data)
+            self.head = new
+            new.next = temp
+    
+    def display(self):
+        temp = self.head
+        if self.isEmpty():
+            print("Queue is Empty.")
+        else:
+            while temp:
+                print(temp.data, end=" ")
+                temp = temp.next
+            print()
+    
+    def pop(self):
+        temp = self.head
+        dummy_node = None
+        if self.isEmpty():
+            print("Queue is Empty")
+        else:
+            while temp.next:
+                dummy_node = temp
+                temp = temp.next
+            if dummy_node is not None:
+                dummy_node.next = None
+            else:
+                self.head = None
+            
+                
+Queue_object = Queue()
+Queue_object.display()
+Queue_object.push(10)
+Queue_object.push(20)
+Queue_object.push(30)
+Queue_object.push(40)
+Queue_object.display()
+Queue_object.pop()
+Queue_object.display()
+Queue_object.pop()
+Queue_object.display()
+Queue_object.pop()
+Queue_object.display()
+Queue_object.pop()
+Queue_object.display()

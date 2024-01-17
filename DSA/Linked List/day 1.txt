@@ -1,0 +1,222 @@
+Data Structures
+    Performing manipulations on the data is called as data structure 
+    Different manipulations onn the data are 
+        1. Storing the data
+        2. Updating the data
+        3. Retriving the data
+        4. Deleting the data
+    Various data structure concepts are 
+        1. Stack
+        2. Queue
+        3. Searching and sorting techniques
+        4. Linnked List
+        5. Trees
+        6. Graphs
+
+Linked List
+    Linked list is a collection of nodes and every node will be connected with the next node
+    Linked list is classified into 3 types
+        1. Single Linked List
+        2. Double Linked List
+        3. Circular Linked List
+    
+Single Linked List
+    Single Linked List is a collection of nodes and every node contain 2 fields 
+        1. Data
+        2. Address
+    The various operations we are going to perform such as:
+        1. Creating the node
+        2. Inserting the data into the node
+        3. Displaying the data present in the node
+        4. Adding the nodes
+        5. Deleting the node
+        6. Displaying the data in the reverse order
+
+    Diagram:
+    /Diagrams/Single Linked List.png 
+
+    Rough Code
+
+    Creating Node: 
+        class Node:
+            def __init__(self,data):
+                self.data = data
+                self.next = None
+            
+        class single_list:
+            def __init__(self):
+                self.head = None
+
+    
+    Innserting Data:
+        n1 = Node(10)
+        n2 = Node(20)
+        n1.next = n2
+        n3 = Node(30)
+        n2.next = n3
+        n4 = Node(40)
+        n3.next = n4
+        single_list_obj = single_list()
+        single_list_obj.head = n1
+    
+
+    Displaying Data:
+        def display(self):
+            if self.head is None:
+                print("Empty")
+            else:
+                while(temp):
+                    print(temp.data, end="--->")
+                    temp = temp.next
+
+
+single_linked_list.py
+
+class Node:
+    def __init__(self,data):
+        self.data = data 
+        self.next = None
+
+class single_list:
+    def __init__(self):
+        self.head = None
+    
+    def display(self):
+        temp = self.head
+        
+        if self.head is None:
+            print("List is Empty:")
+        else:
+            while(temp):
+                print(temp.data,end="--->")
+                temp = temp.next
+    
+n1 = Node(10)
+single_object = single_list()
+single_object.head = n1
+n2 = Node(20)
+n1.next = n2
+n3 = Node(30)
+n2.next = n3
+n4 = Node(40)
+n3.next = n4
+single_object.display()
+
+
+# o/p:
+# 10--->20--->30--->40--->
+
+
+Write a program to reverse a linked list
+
+single_linked_list.py
+
+class Node:
+    def __init__(self,data):
+        self.data = data 
+        self.next = None
+
+class single_list:
+    def __init__(self):
+        self.head = None
+    
+    def display(self):
+        temp = self.head
+        
+        if self.head is None:
+            print("List is Empty:")
+        else:
+            while(temp):
+                print(temp.data,end="--->")
+                temp = temp.next
+        print()
+    
+    def reverse_display(self):
+        reverse_list = []
+        temp = self.head
+        if self.head is None:
+            print("List is Empty")
+        else:
+            while(temp):
+                reverse_list.append(temp.data)
+                temp = temp.next
+        reverse_list.reverse()
+        for i in reverse_list:
+            print(i,end='--->')
+    
+n1 = Node(10)
+single_object = single_list()
+single_object.head = n1
+n2 = Node(20)
+n1.next = n2
+n3 = Node(30)
+n2.next = n3
+n4 = Node(40)
+n3.next = n4
+single_object.display()
+single_object.reverse_display()
+
+
+# o/p:
+# 10--->20--->30--->40--->
+# 40--->30--->20--->10--->
+
+
+
+Insert Node at Start
+
+class Node:
+    def __init__(self,data):
+        self.data = data 
+        self.next = None
+
+class single_list:
+    def __init__(self):
+        self.head = None
+    
+    def display(self):
+        temp = self.head
+        
+        if self.head is None:
+            print("List is Empty:")
+        else:
+            while(temp):
+                print(temp.data,end="--->")
+                temp = temp.next
+        print()
+    
+    def reverse_display(self):
+        reverse_list = []
+        temp = self.head
+        if self.head is None:
+            print("List is Empty")
+        else:
+            while(temp):
+                reverse_list.append(temp.data)
+                temp = temp.next
+        reverse_list.reverse()
+        for i in reverse_list:
+            print(i,end='--->')
+            
+    def insert_at_start(self,data):
+        new_node = Node(data)
+        temp = self.head
+        self.head = new_node
+        new_node.next = temp
+    
+n1 = Node(10)
+single_object = single_list()
+single_object.head = n1
+n2 = Node(20)
+n1.next = n2
+n3 = Node(30)
+n2.next = n3
+n4 = Node(40)
+n3.next = n4
+single_object.display()
+single_object.insert_at_start(5)
+single_object.display()
+single_object.reverse_display()
+
+
+Write a program to add the node at end
