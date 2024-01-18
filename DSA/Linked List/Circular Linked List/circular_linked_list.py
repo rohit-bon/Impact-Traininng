@@ -32,6 +32,17 @@ class circular_linked_list:
             node.next = temp
             self.head = node
             self.tail.next = node
+            
+    def insert_at_position(self,data,position):
+        node = Node(data)
+        temp = self.head 
+        if position == 1:
+            self.insert_at_start(data)
+        else:
+            while(position>2):
+                temp = temp.next
+                position -= 1
+            node.next,temp.next=temp.next,node
     
     def insert_at_last(self,data):
         if self.head is None:
@@ -65,8 +76,9 @@ list_obj.insert_at_start(10)
 list_obj.insert_at_last(20)
 list_obj.insert_at_last(30)
 list_obj.insert_at_last(40)
+list_obj.insert_at_position(60,3)
 list_obj.display()
-list_obj.insert_at_start(50)
+# list_obj.insert_at_start(50)
 # n2 = Node(20)
 # list_obj.tail.next = n2
 # list_obj.tail = n2
@@ -79,6 +91,6 @@ list_obj.insert_at_start(50)
 # list_obj.tail.next = n4
 # list_obj.tail = n4
 # list_obj.tail.next = list_obj.head
-list_obj.display()
-list_obj.reverse()
-list_obj.display()
+# list_obj.display()
+# list_obj.reverse()
+# list_obj.display()
