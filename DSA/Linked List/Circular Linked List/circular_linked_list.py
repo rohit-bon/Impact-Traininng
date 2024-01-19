@@ -55,6 +55,38 @@ class circular_linked_list:
             self.tail.next = node
             self.tail = node
             self.tail.next = self.head
+    
+    def del_at_start(self):
+        temp = self.head
+        self.head = temp.next 
+        self.tail.next = self.head
+        
+    def del_at_position(self, position):
+        temp = self.head
+        temp2 = None 
+        if position == 1:
+            self.del_at_start()
+        else:
+            while (position > 1):
+                temp2 = temp
+                temp = temp.next
+                position -= 1
+                if temp == self.head:
+                    if position == 1:
+                        print("Enter Valid Position")
+                        return 0
+                    self.del_at_end()
+                    return 0
+            temp2.next, temp.next = temp.next, None
+        
+    def del_at_end(self):
+        current = self.head
+        temp = self.head.next
+        while temp.next != self.head:
+            temp = temp.next
+            current = current.next
+        current.next = self.head
+        self.tail=current
             
     def reverse(self):
         prev = self.tail
@@ -77,6 +109,10 @@ list_obj.insert_at_last(20)
 list_obj.insert_at_last(30)
 list_obj.insert_at_last(40)
 list_obj.insert_at_position(60,3)
+list_obj.display()
+list_obj.del_at_start()
+list_obj.display()
+list_obj.del_at_end()
 list_obj.display()
 # list_obj.insert_at_start(50)
 # n2 = Node(20)

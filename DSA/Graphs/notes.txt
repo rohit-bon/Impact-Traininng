@@ -1,0 +1,53 @@
+Graph:
+    Graph is a collection of vertices and edges
+    Vertices will be represented by Circles or Nodes or Hole
+    Edges will represent the lines 
+    Edges will connects the Nodes 
+
+Degree of a Node:
+    The number of edges connected to each node is known as degree of that node
+
+Size of a Graph:
+    Size of a graph will represent the total numberr of edges in a graph 
+
+Different types of graphs
+    1. Directed and Undirected Graph
+        Directed Graph 
+            if the direction is indicated between the edges then it will be called as directed graph
+        Undirected Graph
+            If no direction is indicated between the edges is called as Undirected Graph 
+
+    2. Weighted and Unweighted Graph 
+        Weighted Graph 
+            if the weight is specified between the edges then it is called as Weighted Graph
+        Unweighted Graph
+            if the weight is not specified between the edges then it is called as Unweighted Graph
+    
+    3. Cyclic and Uncyclic Graph 
+        Cyclic Graph
+            if the graph is forming a circle then it  is called as Cyclic Graph 
+        Uncyclic Graph
+            if the graph is not forming a circle then it is called as Uncyclic Graph
+    
+Representation of Graph
+    Graps will be represented in 2 ways
+        1. Using Multi Dimensional Array
+        2. Using a list
+    
+    Using Multi Dimensional Array
+            A B C D
+
+        A   0 1 0 1
+        B   1 0 1 0
+        C   0 1 0 1
+        D   1 0 1 0
+    
+Graph Supports 2 Traversal Technique
+    1. BFS (Breadth Search First)
+        BFS is similar to implementation of Queue
+    2. DFS (Depth First Search)
+        DFS is similar to implementation of Stack
+    
+    Queue works on the principle of First In First Out
+    Stack works on the principle of Last In First Out
+
