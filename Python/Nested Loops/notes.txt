@@ -1,0 +1,148 @@
+Nested While and Nested for
+    a while loop within the another while loop it is called as nested while loops
+
+Write a program to print prime numbers between 1 to 100 using nested while
+my_list = []
+i=1 
+while i<=100:
+    c=0
+    q=1
+    while q<=i:
+        if i%q == 0:
+            c += 1
+        q += 1
+    if c == 2:
+        my_list.append(i)
+    i += 1
+
+print(*my_list)
+
+
+find factorial from 5 to 10
+i = 5
+while i<=10:
+    fact = 1
+    j = 1
+    while j<=i:
+        fact *= j
+        j += 1
+    print(fact)
+    i += 1
+
+Write a program to print following pattern
+1 
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+i=1
+while i<=5:
+    j=1
+    while j<=i:
+        print(j, end = ' ')
+        j+=1
+    print()
+    i+=1
+    
+# o/p:
+# 1 
+# 1 2
+# 1 2 3
+# 1 2 3 4
+# 1 2 3 4 5
+
+
+
+Write a program to print following pattern
+1 2 3 4 5 
+1 2 3 4
+1 2 3
+1 2
+1
+
+i = 5
+while i>0:
+    j = 1
+    while j<=i :
+        print(j, end = ' ')
+        j+=1
+    print()
+    i-=1
+    
+# o/p:
+# 1 2 3 4 5 
+# 1 2 3 4
+# 1 2 3
+# 1 2
+# 1
+
+
+
+Write a program to print following pattern
+1 2 3 4 5 
+2 3 4 5
+3 4 5
+4 5
+5
+
+i=1
+while i <= 5:
+    j = i
+    while j <= 5:
+        print(j, end = ' ')
+        j+=1
+    print()
+    i+=1
+    
+# o/p:
+# 1 2 3 4 5 
+# 2 3 4 5
+# 3 4 5
+# 4 5
+# 5
+
+
+Write a program to print following pattern
+1 2 3 4 5 
+2 3 4 5
+3 4 5
+4 5
+5
+6
+6 5
+6 5 4
+6 5 4 3
+6 5 4 3 2
+6 5 4 3 2 1
+
+
+i=1
+while i <= 5:
+    j = i
+    while j <= 5:
+        print(j, end = ' ')
+        j+=1
+    print()
+    i+=1
+i = 6
+while i>0:
+    j = 6
+    while j>=i:
+        print(j, end = ' ')
+        j-=1
+    print()
+    i-=1
+    
+# o/p:
+# 1 2 3 4 5 
+# 2 3 4 5
+# 3 4 5
+# 4 5
+# 5
+# 6
+# 6 5
+# 6 5 4
+# 6 5 4 3
+# 6 5 4 3 2
+# 6 5 4 3 2 1

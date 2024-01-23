@@ -1,0 +1,150 @@
+NON LINEAR DATA STRUCTURES
+    Trees:
+        Organizing the data in Hierarchical form (In non linear form)
+        Organizing the data in Hierarchical fashion without any closed path 
+        Tree is a collection of Nodes and node contains the element 
+    
+    Basic Terminology of a Tree
+        1. Node
+            It is an element of a tree 
+            A tree can have number of nodes 
+        2. Root Node
+            starting element of tree is called as Root Node(where branch occurs)
+            Tree will have only 1 root node
+        3. Edge 
+            A link between 1 node to another node or connection between the nodes 
+            If we have N nodes and number of edges will be N-1 
+        4. Parent
+            A node which has branches 
+        5 Child
+            Branches of a parent 
+            Node with edge from bottom to top 
+        6. Siblings
+            the childrens of same parent 
+        7. Leaf Node
+            A node without any child 
+        8. Internal Nodes
+            All the nodes other than the leaf node 
+            Node with child is called as internal node
+        9. Degree of a tree
+            Number of child node will represent degree of the node
+            the maximum degree of all nodes is called as degree of a tree or Node with maximum number of childrens
+        10. Level of a tree
+            Each step or Hierarchical of tree is called as levvel of a tree
+        11. Height of  a tree
+            The longest path between particular leaf node to root node 
+        12. Depth
+            The lonngest path from root node to particular node is called as depth 
+            Node with childrens form a sub tree 
+
+    Binary Tree
+        Every node in a tree should have at most 2 children
+        
+    Construction of a Binary Tree 
+        If the tree is empty then it will be connsidered as a root node 
+        if the element is greater than the root node insert at right of tree 
+        if the element is less than than the root node insert at left side 
+    
+    Traversal technique of binary tree 
+        1. Pre Order (Root->Left->Right)
+        2. Post Order (Left->Right->Root)
+        3. In Order (Left->Root->Right)
+
+
+Write a program to Construct binary tree and print the binary tree 
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.left =  None 
+        self.right = None 
+    
+    def insert(self, data):
+        if self.data:
+            if self.data > data:
+                if self.left is None:
+                    self.left = Node(data)
+                else:
+                    self.left.insert(data)
+            else:
+                if self.right is None:
+                    self.right = Node(data)
+                else:
+                    self.right.insert(data)
+        else:
+            self.data = Node(data)
+
+def print_tree(root):
+    if root:
+        print_tree(root.left)
+        
+        print(root.data, end = ' ')
+        
+        print_tree(root.right)
+
+n = Node(27)
+n.insert(14)
+n.insert(35)
+n.insert(10)
+n.insert(19)
+n.insert(31)
+n.insert(42)
+print_tree(n)
+
+
+Applying the Traversal Technique for current program
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.left =  None 
+        self.right = None 
+    
+    def insert(self, data):
+        if self.data:
+            if self.data > data:
+                if self.left is None:
+                    self.left = Node(data)
+                else:
+                    self.left.insert(data)
+            else:
+                if self.right is None:
+                    self.right = Node(data)
+                else:
+                    self.right.insert(data)
+        else:
+            self.data = Node(data)
+
+def print_tree_in_order(root):
+    if root:
+        print_tree_in_order(root.left)
+        
+        print(root.data, end = ' ')
+        
+        print_tree_in_order(root.right)
+
+def print_tree_pre_order(root):
+    if root:
+        print(root.data, end = ' ')
+        print_tree_pre_order(root.left)
+        print_tree_pre_order(root.right)
+
+def print_tree_post_order(root):
+    if root:
+        print_tree_post_order(root.left)
+        print_tree_post_order(root.right)
+        print(root.data, end=' ')
+
+n = Node(27)
+n.insert(14)
+n.insert(35)
+n.insert(10)
+n.insert(19)
+n.insert(31)
+n.insert(42)
+print_tree_in_order(n)
+print()
+print_tree_pre_order(n)
+print()
+print_tree_post_order(n)
+
