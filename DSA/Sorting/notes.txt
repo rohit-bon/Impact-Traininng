@@ -24,6 +24,67 @@ Sorting Algorithms in Python:
         during comparision we are going to compare left side value with the right side value if left side value is less than right side value then left side value will come first if condition is false then right side value will comme first.
     
 
+    Quick Sort:
+        Step1:  Consider the first element as pivot
+        Step2:  Initalize i to low and j to high
+        step3:  Repeat the following steps until i < j
+                    keep on incrementing a[i] <= pivot 
+                    keep on decrementing a[j] > pivot 
+        step4:  if i < j then swap a[i], a[j] 
+        step5:  if i > j then swap a[j], pivot 
+
+        30 20 10 50 60 40
+        pivot = 30
+        i=0
+        j=len(a) - 1 = 5
+        0<5
+        ---> a[i] <= pivot
+        30<=30 --> i=1
+        20<=30 --> i=2
+        10<=30 --> i=3
+        50<=30(False) i=3
+        a[j]>pivot
+        40>30 --> j=4
+        60>30 --> j=3
+        50>30 --> j=2
+        10>30 -- False(j=2)
+        cond false
+        i=3, j=2
+        swap --> a[j], pivot
+        a[2], a[0]
+        10 20 30 50 60 40
+        return pivot index --> 2
+        10 20 30
+        50 60 40
+        CONTINUE THE PROCEDURE IN LOOP
+        50 60 40
+        i=0
+        j=2
+        a[i]<=pivot --> 50<=50
+        i=1
+        60<=50 --> false --> i=1
+        a[j]>pivot
+        40>50 --> false --> j=2
+        false i=1, j=2 
+        a[i],a[j]
+        a[1],a[2]
+        50 40 60
+        CONTINUE THE PROCEDURE IN LOOP
+        50 40 60
+        i=0
+        j=2
+        pivot = 50
+        a[i]<=pivot --> 50<=50
+        i=1
+        40<=50 --> i=2
+        60<=50 --> false -->i=2
+        a[j]>pivot
+        60>50 --> j=1
+        40>50 --> false
+        i=2, j=1
+        j, pivot
+        a[1], a[0]
+        40 50 60
 
 
 
@@ -92,3 +153,34 @@ def merge_sort(my_list):
 my_list = list(map(int, input().split()))
 my_list = merge_sort(my_list)
 print(*my_list)
+
+
+
+Quick Sort:
+
+def partition(i,j,l):
+    pi = i
+    pivot = l[i]
+    while i<j:
+        while l[i]<=pivot and i<len(l):
+            i+=1
+        while l[j]>pivot:
+            j-=1
+        if i<j:
+            l[i], l[j] = l[j], l[i]
+            print(l)
+            
+    l[j], l[pi] = l[pi], l[j]
+    print(l)
+    return j
+
+def quick_sort(i,j,l):
+    if i<j:
+        p = partition(i,j,l)
+        quick_sort(i, p-1, l)
+        quick_sort(p+1, j, l)
+        
+l=[30,20,10,50,60,40]
+print("Before Sortinng: ",l)
+quick_sort(0,len(l)-1,l)
+print("After Sorting: ",l)
