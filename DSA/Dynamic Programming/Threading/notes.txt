@@ -1,0 +1,140 @@
+def fib(n):
+    f=[0,1]
+    for p in range(2,n+1):
+        f.append(f[p-1]+f[p-2])
+    return f[n]
+
+
+Multi Threading
+    Thread is a functionality or logic which executes simultaneously along with the other part of the program .
+    Thread is light weight process(The program which is under execution is known as a process).
+    We can define functionality or logic as a Thread by overriding run method of thread class.
+    Thread class is a predefined class which is defined in threading model.
+    Threads can be executed thorugh start method of thread class.
+
+import threading
+
+class X(threading.Thread):
+    def run(self):
+        for i in range(1,101):
+            print(i)
+
+class Y(threading.Thread):
+    def run(self):
+        for j in range(101,201):
+            print(j)
+            
+x1 = X()
+x1.start()
+y1 = Y()
+y1.start()
+
+
+
+Scheduling:
+    Among multiple threads which thread has to start execution first, how much time thread has to execute, after alloted time is over which thread has to continue the execution next is comes under Scheduling
+    Scheduling is based on Scheduling algorithms and every OS is following dynamic scheduling algorithms, so that scheduling is highly dynamic 
+    for every thread one name is assigned to thread class 
+
+Threadning:
+    Python Intrepreter assigned 1 unique name to each and every thread.
+    we can get names of thread by calling getName or ThreadClass
+    we can also assign our own names to threads by calling setName method of thread class
+
+import threading
+
+class X(threading.Thread):
+    def run(self):
+        print(self.getName())
+
+class Y(threading.Thread):
+    def run(self):
+        print(self.getName())
+        
+x1 = X()
+x1.setName("X-Thread")
+x1.start()
+y1 = Y()
+y1.setName("Y-Thread")
+y1.start()
+
+
+
+
+Suspending the Execution of Thread:
+    we can suspend execution of thread temporarily by calling sleep function or join method.
+    sleep function is a predefined function which is defined in time module.
+    sleep  function suspends the execution of current thread until specified time is over.
+
+import time
+
+for i in range(1,21):
+    print(i)
+    time.sleep(.2)
+
+
+import threading
+import time
+
+class X(threading.Thread):
+    def run(self):
+        time.sleep(10)
+        for i in range(1,11):
+            print("Rohit Thread:")
+
+class Y(threading.Thread):
+    def run(self):
+        for j in range(1,6):
+            print("Bongade Thread:")
+            time.sleep(3)
+
+x1=X()
+x1.start()
+y1=Y()
+y1.start()
+
+
+
+
+Write a program to print 101 to 200 numbers first after that print the number from 1 to 100
+import threading
+import time
+
+
+class X(threading.Thread):
+    def run(self):
+        time.sleep(2)
+        for i in range(1,101):
+            print(i)
+
+class Y(threading.Thread):
+    def run(self):
+        for j in range(101,201):
+            print(j)
+            
+x1=X()
+x1.start()
+y1=Y()
+y1.start()
+
+
+
+
+Join method:
+    join method is a predefined method which is defined in thread class 
+    join method stops the execution of current thread until specified thread execution is over
+
+import threading
+import time
+
+
+class Y(threading.Thread):
+    def run(self):
+        for i in range(1,6):
+            print("Rohit Thread:")
+            time.sleep(2)
+y1=Y()
+y1.start()
+y1.join(5)
+for j in range(1,11):
+    print("Bongade Thread:")

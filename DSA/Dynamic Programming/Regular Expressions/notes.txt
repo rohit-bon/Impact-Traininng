@@ -1,0 +1,126 @@
+Regular Expressions:
+    If we want to represent a group of strings according to particular format or pattern then we should go for Regular Expression.
+    Regular Expression is a declarative mechanism to represent a group of string according to particular format or pattern.
+    Eg.     1. we can write a Regular Expression to represent mobile numbers
+            2. we can write a Regular Expression to represnt all mail ids.
+    The main important application areas of Regular Expression are:
+        1. To develop validation famework or validation logic
+        2. To develop pattern matching application
+            eg. crtl+f in windows grep in linux
+        3. To develop translator like compilers, interpreter, etc.
+        4. To develop digital circuits 
+        5. To develop communication protocol like tcp, udp, etc.
+    We can develop Regular Expressions based applications by using python module RE.
+    This module contains several in-built functions to use Regular Expressions very easily in our application.
+
+    1. Compile
+        RE model contains compile function to compile a pattern into Regex object.
+    2. Finditer
+        Returns an iterator object which is match objecct for every match
+        On Match object we can call the following methods:
+            start, end, group
+        import re
+
+        c=0
+        p=re.finditer("ab","abaabab")
+        for s in p:
+            c=c+1
+            print(s.start(),"---",s.end(),"---",s.group())
+        print("No. of occurences:",c)
+
+
+    Important functions of RE module 
+        1. Match
+        2. fullMatch
+        3. search
+        4. findAll
+        5. finditer
+        6. sub
+        7. subn
+        8. split
+    Match:
+        We can use match function to check the given pattern at begining of target string.
+        If the metch is available then wee will get the match object otherwise we will get none.
+
+        import re
+        p=re.match("In","India")
+        if p!=None:
+            print("The Pattern available at begining of string:")
+        else:
+            print("The Pattern is not available at begining of string:")
+        
+    fullmatch:
+        We can use fullMatch method or function to match a pattern to all of target string i.e. complete string should be match according to the given pattern 
+        If the complete string match then this function will return match objects otherwise it will return 
+
+        import re
+        p=re.fullmatch("India","India-Rohit")
+        if p!=None:
+            print("The Pattern Matched")
+        else:
+            print("The Pattern not Matched")
+    
+    search:
+        We can use search function to search the given pattern in the target string
+        If match is available then it returns the match objecct which represent the first occurence of match
+        If the match is not available then it return None
+
+        import re
+        p=re.search("in","ashwin")
+        if p!=None:
+            print("The Pattern is available")
+        else:
+            print("The Pattern is not available")
+        
+
+    findAll:
+        To find all the occurences of the match
+        This function returns a list object which contains all occurences
+
+
+        import re
+        l=re.findall("[0-9]","a1b3ghd2")
+        print(l)
+
+    
+    finditer:
+        import re
+        l=re.finditer("[a-z]","a1b3ghd2")
+        for p in l:
+            print(p.start(),"---",p.end(),"---",p.group())
+
+    sub:
+        sub means substitution or replacement
+        In the target string every matched pattern will be replaced with the provided replacement
+
+        import re
+        l=re.sub("[0-9]","$","a1b3ghd2")
+        print(l)
+
+    subn:
+        It is exactly same as sub method but it can also return number of replacement
+
+        import re
+        l=re.subn("[0-9]","$","a1b3ghd2")
+        print(l)
+
+    Cap Symbol (^):
+        we can use cap Symbol to check whether given target string starts with our provided pattern or not 
+        If the target starts with the given pattern then it returns match object otherwise it will return None.
+
+        import re
+        l=re.search("^learn","learning with python is easy")
+        if l!=None:
+            print("The given str starts with learns")
+        else:
+            print("The given str not starts with learns")
+
+    Dollar Symbol:
+        We can use dollar symbol to check whether target string ends with the provided pattern or not 
+
+        import re
+        l=re.search("easy$","learning with python is easy")
+        if l!=None:
+            print("The given str ends with easy")
+        else:
+            print("The given str not ends with easy")

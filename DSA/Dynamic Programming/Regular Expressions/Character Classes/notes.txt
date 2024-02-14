@@ -1,0 +1,179 @@
+Character Classes:
+    We can use character classes to search a group of characters
+        1. [abc] ===> Either a or b or can
+        2. [^abc] ===> Except a and b and c
+        3. [a-z] ===> Any lower case alphabet symmbol
+        4. [A-Z] ===> Any Upper case alphabet symmbol
+        5. [a-zA-z] ===> Any alphabet symmbol
+        6. [0-9] ===> Any digit from 0 to 9
+        7. [a-zA-z0-9] ===> Any alphanumeric character
+        8[^a-zA-Z0-9] ===> Except alphanumeric characters(Special characters)
+1.
+import re
+l=re.finditer("[abc]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+2.
+import re
+l=re.finditer("[^abc]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+3.
+import re
+l=re.finditer("[a-z]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+4.
+import re
+l=re.finditer("[A-Z]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+5.
+import re
+l=re.finditer("[a-zA-Z]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+6.
+import re
+l=re.finditer("[0-9]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+7.
+import re
+l=re.finditer("[a-zA-Z0-9]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+8.
+import re
+l=re.finditer("[^a-zA-Z0-9]","a7b@K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+o/p:
+0 --- a
+2 --- b
+------------------------------------------------------------------------------
+1 --- 7
+3 --- @
+4 --- K
+5 --- 9
+6 --- z
+------------------------------------------------------------------------------
+0 --- a
+2 --- b
+6 --- z
+------------------------------------------------------------------------------
+0 --- a
+2 --- b
+4 --- K
+6 --- z
+------------------------------------------------------------------------------
+1 --- 7
+5 --- 9
+------------------------------------------------------------------------------
+0 --- a
+1 --- 7
+2 --- b
+4 --- K
+5 --- 9
+6 --- z
+------------------------------------------------------------------------------
+3 --- @
+
+
+Pre defined Character classes:
+    1. \s => Space character
+    2. \S => Any character except space character
+    3. \d => Any digit from 0 to 9
+    4. \D => Any character except digit
+    5. \w => Any word character [a-zA-z0-9]
+    6. \W => Any character except word character(Special Character)
+    7. . => Any character including special characters
+
+
+1.
+import re
+l=re.finditer("\s","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+2.
+import re
+l=re.finditer("\S","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+3.
+import re
+l=re.finditer("\d","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+4.
+import re
+l=re.finditer("\D","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+5.
+import re
+l=re.finditer("\w","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+6.
+import re
+l=re.finditer("\W","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+7.
+import re
+l=re.finditer(".","a7b @K9z")
+for p in l:
+    print(p.start(),"---",p.group())
+
+
+o/p:
+3 ---  
+------------------------------------------------------------------------------
+0 --- a
+1 --- 7
+2 --- b
+4 --- @
+5 --- K
+6 --- 9
+7 --- z
+------------------------------------------------------------------------------
+1 --- 7
+6 --- 9
+------------------------------------------------------------------------------
+0 --- a
+2 --- b
+3 ---
+4 --- @
+5 --- K
+7 --- z
+------------------------------------------------------------------------------
+0 --- a
+1 --- 7
+2 --- b
+5 --- K
+6 --- 9
+7 --- z
+------------------------------------------------------------------------------
+3 ---
+4 --- @
+------------------------------------------------------------------------------
+0 --- a
+1 --- 7
+2 --- b
+3 ---
+4 --- @
+5 --- K
+6 --- 9
+7 --- z
+
+
+Write a program to check the given number is valid or not
