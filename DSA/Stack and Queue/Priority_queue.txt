@@ -1,0 +1,8 @@
+Priority Queue:
+    Priority queue is similar to queue operation
+    But in the queue always a first element will be deleted 
+    In Priority queue we can assign the priority according to the priority elements get deleted
+    The different ways of assigning priorities are:
+        1. Ascending Order
+        2. Descending Order
+
