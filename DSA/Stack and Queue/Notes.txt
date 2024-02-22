@@ -286,4 +286,25 @@ print("Stack after Reverse")
 stack_object.display_stack()
 
 
-write a program to reverse a string using stack operation
+Application of Stack:
+    1. stack can be used to convert infix expression to postfix expression
+    2. it will also convert infix expression to prefix
+    3. evaluation of postfix expression
+    4. balancing the symbol
+
+Infix:
+    If operator is in-between the operand then it is called as infix
+Postfix:
+    If operator comes after the operand then it is called as postfix
+Prefix:
+    If operator comes before the operand then it is called as postfix
+
+Infix to Postfix conversion:
+    Step1:  Read the infix expression, & read each and every char in infix expression.
+    Step2:  If the char is left '(' push it to the  stack.
+    Step3:  If the char is operand then add it to postfix expression.
+    Step4:  If the operator is char check stack is empty or not, if stack is empty push operator innto stack.
+    Step5:  If the stack is not empty then check the priority of the operator, if priority of the operator is greater than operator preseent at the stack then push operator to stack.
+    Step6:  If the priority of the operator is less than operator present in the stack then pop operator from the stack and add it to the postfix expression.
+    Step7:  If the char is ')' then pop all elements of the stack until reaching the right ')'.
+    

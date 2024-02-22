@@ -1,0 +1,19 @@
+Data Analytics Libraries:
+    These libraries are use for performing manipulation on data 
+    The various data analysis libraries are numpy, pandas, matplot, seaborn, scikit
+    numpy stands for numerical python 
+        numpy library used to solve complex mathematical problems
+        using numpy library we can represent our data in matrix form
+        numpy library is used to perform statistical operations suchb as mean, mean square value, standard deviation and variants etc.
+    pandas
+        pandas is also one of the library in python which is used to perform data analysis and manipulation
+        data analysis operations such as cleaning, processing, modeling, and inspecting the data
+        data manipulation operations such as adding the data, deleting the data, and applying modifications on the data
+        pandas libraries are used to reduce the complexity and make our work easier
+    matplot 
+        these libraries are used to represent our data in graphical form 
+        the graphical or pictorial representation will helpful to understand the application
+
+    LOC and ILOC (Location and Index based Location)
+        ILOC is purely based on index position i.e. we have to mention both row and column information index only
+        In LOC we can access the data using the name field or column field 
