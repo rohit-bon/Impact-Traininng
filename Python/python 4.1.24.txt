@@ -21,7 +21,7 @@ cat batman latt matter cat matter cat cat latt latt
 cat latt
 --------------------------------------------------------------------------------------------------------------------------
 Set:
-    set objecct can be created by using '{}' or by calling the set finction
+    set object can be created by using '{}' or by calling the set finction
     set is mutable object 
     duplicate element are not allowed in the set
     insertion order is not preserved 

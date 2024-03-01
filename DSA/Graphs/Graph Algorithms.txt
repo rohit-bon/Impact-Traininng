@@ -1,0 +1,9 @@
+Graph Algorithm:
+    Discuss the Algorithm:
+    1.  This Algorithm is used to find the shortest path between source and destination or we can find the shortest distance between source and destination.
+    2.  In this Algorithm we will take two list, first list will represent the visited nodes and second list will represent the  distances.
+    3.  If the node is not visited we have to consider like false, if the node is visited it will becomes true.
+    4.  For every node we have to find Adjacent nodes.
+    5.  Initally all the distances will be taken as infinity.
+    6.  Once, After calculating the distances this corresponding list will be updated.
+

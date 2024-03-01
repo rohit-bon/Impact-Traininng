@@ -1,0 +1,4 @@
+Belman Ford:
+    This Algorithm solves the single source selected path problem of a directed graph.
+    In which the edges can be negative
+    This Algorithm is applied to find the shortest path, if any negative weighted cycle doesn't exist.

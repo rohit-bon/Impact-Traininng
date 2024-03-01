@@ -1,0 +1,5 @@
+Krushkal's Algorithm:
+    Krushkal's Algorithm is used to find minimum cost spanning tree.
+    Step1:  Arrange all edges in ascending order(lower to higher based on cost)
+    Step2:  Consider least cost weighted edge and include in a tree, if edge form a cucle then just ignore and consider next least cost weighted edge
+    Step3:  Repeat Step2 such way that all vertices should be included in a tree, finally you should have n vertices and n-1 edges

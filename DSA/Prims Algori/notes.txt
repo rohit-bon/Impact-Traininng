@@ -1,0 +1,7 @@
+Prim's Algorithm:
+    Graph should be weighted, completed and undirected
+    Step1:  Consider any Vertices
+    Step2:  Find all adjacent selected vertices to all new vertices, select least weighted edge and include it in a tree, if least weighted edge form a circle then discqard it and consider next least weighted edge and include it in a min spanning tree
+    Step3:   Perform Step2 until all vertices are included in a tree
+
+    This algo is also used to find the shortest path
