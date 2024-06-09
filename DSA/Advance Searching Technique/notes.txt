@@ -1,0 +1,3 @@
+Advance Searching Technique:
+    Interpolation Search:
+        

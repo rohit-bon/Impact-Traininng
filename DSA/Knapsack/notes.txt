@@ -1,0 +1,11 @@
+Knapsack:
+    Knapsack problem is example of comnbinational optimization of problem
+    it is also knnown as as ruckseek problem
+    the name of the problem is defined in the form of the maximization problem
+    given a bag with maximum weight capacity of w and set of itmes, each having a weight and value associated with it, Deccide the number of each item to take collection such  that total weight > capacity 
+    Types of knapsack:
+        1. Fractional Knapsack
+        2. 0/1 knapsack
+        3. Bounded Knapsack
+        4. unbounded knapsack
+

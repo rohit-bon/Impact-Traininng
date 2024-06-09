@@ -1,0 +1,34 @@
+Hash Set:
+    Hash set is a collection of object 
+    In hash table the data must stored in the form of key and value pair 
+    Hash set internally uses the hash table  data structure to store the data items 
+    Just like a set Hash set also does not allow storage of duplicate elements
+
+Hash map and hash Table:
+    Hash map and hash table both are same i.e. the way of storing and organising information
+    Hash function will establish the relation between keys and values
+    hash function is a function that accepts a string and returns a number 
+    Hashing is a technique it is used in computer sciencce to effienctly store and retrive a data 
+    It involves converting data into fixed set values called hash codes 
+    This hash codes are used as indexes to store the data in data structures like  hash maps, hash tables and hash sets
+
+Implementation of Hash Set in python.
+
+hash_set = set()
+print(type(hash_set))
+hash_set.add(10)
+hash_set.add(20)
+hash_set.add(30)
+hash_set.add(40)
+print(hash_set)
+hash_set.add(10)
+print(hash_set)
+search_element = 7
+if search_element in hash_set:
+    print("Element found:")
+else:
+    print("Not found:")
+
+
+Implementation of hash map.
+

@@ -1,0 +1,33 @@
+AVL Tree:
+    AVL Tree is defined as self balancing binary search Tree where the diffrence between heights of the  left and right sub tree for any node cannot be more than 1
+    The diffrence between height of left sub tree and right sub tree for any node is known as balance factor of the node
+    Various operations on AVL tree:
+        1. Insertion
+        2. Deletion
+        3. Searching
+    Searching will be similar to search operation in binary search tree
+    The various rotations on AVL tree:
+    1. Left rotation
+    2. Right rotations
+
+    Left rotation:
+        When the node is added into the Right sub tree of the right sub tree, if the tree is gets out of a balance we do single left rotation
+    Right rotation
+        If a node is added to the left sub tree of a left subtree the AVL tree may get out of balance, we do a single right rotation
+    Left-Right rotation
+        Left-Right rotation is a combination in which first left rotation takes place after that right rotation executes.
+    Right-Left rotation
+        Right-Left rotation is a combination in which first right rotation takes place after that left rotation executes.
+    
+    Applications of AVL Tree:
+        It is used to index used reccords in a database and also do effienctly search in that 
+        For all types of in memory collections including sets and dictionaries AVL trees are used 
+        Database applications where Insertions and Deletions are less common but frequent data look ups are necessary
+        Software that makes optimize search 
+    Disadvantages of AVL tree:
+        It is difficult to implement 
+        It has high constant factors for some of the operations
+        takes more processing time for balancing 
+        less used comparative red-black trees 
+        due to its rather strict balance AVL trees provide complicated Insertion and removal operations as more rotations are performed 
+        

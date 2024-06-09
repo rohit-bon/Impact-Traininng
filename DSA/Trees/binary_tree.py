@@ -11,11 +11,10 @@ class Node:
                     self.left = Node(data)
                 else:
                     self.left.insert(data)
+            elif self.right is None:
+                self.right = Node(data)
             else:
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert(data)
+                self.right.insert(data)
         else:
             self.data = Node(data)
 
